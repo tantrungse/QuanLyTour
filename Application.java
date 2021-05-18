@@ -1369,6 +1369,7 @@ public class Application extends JFrame {
 		txtUpdateSdtHdv.setBounds(250, 350, 300, 30);
 		cardUpdateHdv.add(txtUpdateSdtHdv);
 		
+		
 		JButton btnUpdateHdv_CapNhat = new JButton("Cập nhật");
 		btnUpdateHdv_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1384,7 +1385,7 @@ public class Application extends JFrame {
 				huongDanVienBUS.update(dto);
 				HuongDanVienBUS.listHuongDanVienDTO.set(selectedRow, dto);
 				setRow(dto, selectedRow);
-				cardLayout.show(cardsPane, "cardQuanLyHuongDanVien");
+				cardLayout.show(cardsPane, "cardQuanLyHdv");
 				// clear all text after update
 				txtUpdateMaHdv.setText("");
 				txtUpdateHoTenHdv.setText("");
@@ -1392,6 +1393,7 @@ public class Application extends JFrame {
 				txtUpdateHoTenHdv.setText("");
 				txtUpdateDiaChiHdv.setText("");
 				txtUpdateSdtHdv.setText("");
+				return;
 			}
 		});
 		btnUpdateHdv_CapNhat.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -1401,7 +1403,7 @@ public class Application extends JFrame {
 		JButton btnUpdateHdv_QuayLai = new JButton("Quay lại");
 		btnUpdateHdv_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(cardsPane, "cardQuanLyHuongDanVien");
+				cardLayout.show(cardsPane, "cardQuanLyHdv");
 			}
 		});
 		btnUpdateHdv_QuayLai.setFont(new Font("Tahoma", Font.PLAIN, 16));
