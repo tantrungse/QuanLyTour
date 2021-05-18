@@ -1073,13 +1073,71 @@ public class Application extends JFrame {
 		JButton btnHdvSearch = new JButton("TÃ¬m\r\n");
 		btnHdvSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				ArrayList<TaiKhoanDTO> listKQ = taiKhoanBUS.getByTenTK(txtTourSearch.getText());
-//				taiKhoanTblModel.setRowCount(0); // xoa tat ca row
-//				for(TaiKhoanDTO dto : listKQ) {
-//					taiKhoanTblModel.addRow(new Object[] {
-//							dto.getTenTK(), dto.getMatKhau(), dto.getQuyen()
-//					});
-//				}
+				ArrayList<HuongDanVienDTO> listKQ;
+				Object[] options = {
+			            "Tìm kiếm theo mã HDV","Tìm kiếm theo họ HDV", "Tìm kiếm theo tên HDV", "Đóng"
+			        };
+			        int select = JOptionPane.showOptionDialog(btnTourSearch, "Bạn muốn tìm kiếm theo phương thức nào?", "Tùy chọn", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[3]);
+			        
+			        //System.out.println("select: " + select);
+			        //mÃ£ -> select: 0
+			        //tÃªn -> select: 1
+			        // chi phi -> select: 2
+			        // Ä‘Ã³ng -> select: 3
+			        
+			        if(select == 0){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập mã HDV !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = huongDanVienBUS.getByMaHDV(input);
+			                hdvTblModel.setRowCount(0);
+			                
+			                for(HuongDanVienDTO dto : listKQ) {
+			                	hdvTblModel.addRow(new Object[] {
+										dto.getMaHDV(), dto.getHoTen(), dto.getNgaySinh(), dto.getGioiTinh(), dto.getDiaChi(),dto.getSdt()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
+			        
+			        if(select == 1){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập họ HDV !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = huongDanVienBUS.getByHoHDV(input);
+			                hdvTblModel.setRowCount(0);
+			                
+			                for(HuongDanVienDTO dto : listKQ) {
+			                	hdvTblModel.addRow(new Object[] {
+										dto.getMaHDV(), dto.getHoTen(), dto.getNgaySinh(), dto.getGioiTinh(), dto.getDiaChi(),dto.getSdt()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
+			        
+			        if(select == 2){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập tên HDV !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = huongDanVienBUS.getByTenHDV(input);
+			                hdvTblModel.setRowCount(0);
+			                
+			                for(HuongDanVienDTO dto : listKQ) {
+			                	hdvTblModel.addRow(new Object[] {
+										dto.getMaHDV(), dto.getHoTen(), dto.getNgaySinh(), dto.getGioiTinh(), dto.getDiaChi(),dto.getSdt()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
 			}
 		});
 		btnHdvSearch.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -1121,8 +1179,18 @@ public class Application extends JFrame {
 		JButton btnHdvReload = new JButton("Táº£i láº¡i báº£ng");
 		btnHdvReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//hdvTblModel.setRowCount(0);
+				//loadTblHdv();
+				ArrayList<HuongDanVienDTO> listKQ;
+				listKQ = huongDanVienBUS.getAll();
+		        
 				hdvTblModel.setRowCount(0);
-				loadTblHdv();
+                
+                for(HuongDanVienDTO dto : listKQ) {
+                	hdvTblModel.addRow(new Object[] {
+							dto.getMaHDV(), dto.getHoTen(), dto.getNgaySinh(), dto.getGioiTinh(), dto.getDiaChi(),dto.getSdt()
+					});
+                };
 			}
 		});
 		btnHdvReload.setFont(new Font("Tahoma", Font.PLAIN, 16));
