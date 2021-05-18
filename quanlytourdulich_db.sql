@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Doan (
 );
 ALTER TABLE Doan ADD MaTour VARCHAR(10) NOT NULL;
 ALTER TABLE Doan ADD MaHDV VARCHAR(10) NOT NULL;
+ALTER TABLE Doan ADD MaPhuongTien VARCHAR(10) NOT NULL;
 
 -- KhachHang (MaKH, HoKH, TenKH, DiaChi, SDT, MaDoan)
 CREATE TABLE IF NOT EXISTS KhachHang (
@@ -85,13 +86,86 @@ ALTER TABLE CTKeHoach ADD MaKeHoachTour VARCHAR(10) NOT NULL;
 CREATE TABLE IF NOT EXISTS CTKeHoachTheoNgay (
 	MaCTKHTheoNgay VARCHAR(10) NOT NULL,
 	Ngay DATE,
-    TenDiaDiemThamQuan VARCHAR(50),
-    TenPhuongTien VARCHAR(50),
-    TenNhaHang VARCHAR(50),
-    TenKhachSan VARCHAR(50),
     PRIMARY KEY (MaCTKHTheoNgay)
 );
 ALTER TABLE CTKeHoachTheoNgay ADD MaKHTour VARCHAR(10) NOT NULL;
+ALTER TABLE CTKeHoachTheoNgay ADD MaDiaDiemThamQuan VARCHAR(10) NOT NULL;
+ALTER TABLE CTKeHoachTheoNgay ADD MaPhuongTien VARCHAR(10) NOT NULL;
+ALTER TABLE CTKeHoachTheoNgay ADD MaNhaHang VARCHAR(10) NOT NULL;
+ALTER TABLE CTKeHoachTheoNgay ADD MaKhachSan VARCHAR(10) NOT NULL;
+
+-- PhuongTien (MaPhuongTien, TenPhuongTien, ChiPhi, SoChoNgoi)
+CREATE TABLE IF NOT EXISTS PhuongTien (
+	MaPhuongTien VARCHAR(10) NOT NULL,
+    TenPhuongTien VARCHAR(50),
+    ChiPhi DOUBLE,
+    SoChoNgoi INT,
+    PRIMARY KEY (MaPhuongTien)
+);
+
+-- DiaDiemThamQuan (MaDiaDiem, TenDiaDiem, NoiDung(list), DiaChi)
+CREATE TABLE IF NOT EXISTS DiaDiemThamQuan (
+	MaDiaDiem VARCHAR(10) NOT NULL,
+    TenDiaDiem VARCHAR(50) NOT NULL,
+    NoiDung VARCHAR(500),
+    DiaChi VARCHAR(100),
+    PRIMARY KEY (MaDiaDiem)
+);
+
+-- NhaHang (MaNhaHang, TenNhaHang, DiaChi, ChiPhiTrenNguoi)
+CREATE TABLE IF NOT EXISTS NhaHang (
+	MaNhaHang VARCHAR(10) NOT NULL,
+    TenNhaHang VARCHAR(50),
+    DiaChi VARCHAR(100),
+    ChiPhiTrenNguoi DOUBLE,
+    PRIMARY KEY (MaNhaHang)
+);
+
+-- KhachSan (MaKhachSan, TenKhachSan, DiaChi, ChiPhiTrenNguoi)
+CREATE TABLE IF NOT EXISTS KhachSan (
+	MaKhachSan VARCHAR(10) NOT NULL,
+    TenKhachSan VARCHAR(50),
+    DiaChi VARCHAR(100),
+    ChiPhiTrenNguoi DOUBLE,
+    PRIMARY KEY (MaKhachSan)
+);
+
+-- CTThuChi (MaCTThuChi, TongThu, TongChi, DoanThu, MaCTKH)
+CREATE TABLE IF NOT EXISTS CTThuChi (
+	MaCTThuChi VARCHAR(10) NOT NULL,
+	TongThu DOUBLE,
+    TongChi DOUBLE,
+    DoanhThu DOUBLE,
+    PRIMARY KEY (MaCTThuChi)
+);
+
+CREATE TABLE IF NOT EXISTS HoaDon (
+	MaHoaDon varchar(10) NOT NULL,
+    NgayLap date NOT NULL,
+	TongTien DOUBLE,
+	MaKhachHang varchar(10) NOT NULL,
+	MaKhuyenMai varchar(10) NOT NULL,
+    PRIMARY KEY (MaHoaDon)
+);
+
+CREATE TABLE IF NOT EXISTS ChiTietHoaDon (
+	TenKhachHang varchar(255) NOT NULL,
+	TenTour varchar(255) NOT NULL,
+	SoLuong int NOT NULL,
+	GiaVe DOUBLE,
+	ThanhTien DOUBLE,
+	MaHoaDon varchar(10) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS KhuyenMai (
+	MaKhuyenMai varchar(10) NOT NULL,
+	TenKhuyenMai varchar(30) NOT NULL,
+	NoiDung varchar(50) NOT NULL,
+	NgayBatDau date NOT NULL,
+	NgayKetThuc date NOT NULL,
+    MaTour varchar(10) NOT NULL,
+    PRIMARY KEY (MaKhuyenMai)
+);
 
 -- TAO KHOA NGOAI
 ALTER TABLE Doan ADD CONSTRAINT fk_Doan_Tour
@@ -110,58 +184,22 @@ ALTER TABLE KeHoachTour ADD CONSTRAINT fk_KeHoachTour_Tour
     
 ALTER TABLE CTKeHoachTheoNgay ADD CONSTRAINT fk_CTKeHoachTheoNgay_KeHoachTour
 	FOREIGN KEY (MaKHTour) REFERENCES KeHoachTour(MaKeHoach);
+ALTER TABLE CTKeHoachTheoNgay ADD CONSTRAINT fk_CTKeHoachTheoNgay_DiaDiemThamQuan
+	FOREIGN KEY (MaDiaDiemThamQuan) REFERENCES DiaDiemThamQuan(MaDiaDiem);
+ALTER TABLE CTKeHoachTheoNgay ADD CONSTRAINT fk_CTKeHoachTheoNgay_PhuongTien
+	FOREIGN KEY (MaPhuongTien) REFERENCES PhuongTien(MaPhuongTien);
+ALTER TABLE CTKeHoachTheoNgay ADD CONSTRAINT fk_CTKeHoachTheoNgay_NhaHang
+	FOREIGN KEY (MaNhaHang) REFERENCES NhaHang(MaNhaHang);
+ALTER TABLE CTKeHoachTheoNgay ADD CONSTRAINT fk_CTKeHoachTheoNgay_KhachSan
+	FOREIGN KEY (MaKhachSan) REFERENCES KhachSan(MaKhachSan);
     
-/*
--- DiaDiemThamQuan (MaDiaDiem, TenDiaDiem, NoiDung(list), DiaChi)
-CREATE TABLE IF NOT EXISTS DiaDiemThamQuan (
-	MaDiaDiem VARCHAR(10) NOT NULL,
-    TenDiaDiem VARCHAR(50) NOT NULL,
-    NoiDung VARCHAR(500),
-    DiaChi VARCHAR(100),
-    PRIMARY KEY (MaDiaDiem)
-);
-*/
-
-/*
--- PhuongTien (MaPhuongTien, TenPhuongTien, ChiPhi, SoChoNgoi)
-CREATE TABLE IF NOT EXISTS PhuongTien (
-	MaPhuongTien VARCHAR(10) NOT NULL,
-    TenPhuongTien VARCHAR(50),
-    ChiPhi DOUBLE,
-    SoChoNgoi INT,
-    PRIMARY KEY (MaPhuongTien)
-);
-*/
-
-/*
--- NhaHang (MaNhaHang, TenNhaHang, DiaChi, ChiPhiTrenNguoi)
-CREATE TABLE IF NOT EXISTS NhaHang (
-	MaNhaHang VARCHAR(10) NOT NULL,
-    TenNhaHang VARCHAR(50),
-    DiaChi VARCHAR(100),
-    ChiPhiTrenNguoi DOUBLE,
-    PRIMARY KEY (MaNhaHang)
-);
-*/
-
-/*
--- KhachSan (MaKhachSan, TenKhachSan, DiaChi, ChiPhiTrenNguoi)
-CREATE TABLE IF NOT EXISTS KhachSan (
-	MaKhachSan VARCHAR(10) NOT NULL,
-    TenKhachSan VARCHAR(50),
-    DiaChi VARCHAR(100),
-    ChiPhiTrenNguoi DOUBLE,
-    PRIMARY KEY (MaKhachSan)
-);
-*/
-
-/*
--- CTThuChi (MaCTThuChi, TongThu, TongChi, DoanThu, MaCTKH)
-CREATE TABLE IF NOT EXISTS CTThuChi (
-	MaCTThuChi VARCHAR(10) NOT NULL,
-	TongThu DOUBLE,
-    TongChi DOUBLE,
-    DoanhThu DOUBLE,
-    PRIMARY KEY (MaCTThuChi)
-);
-*/
+ALTER TABLE KhuyenMai ADD CONSTRAINT fk_KhuyenMai_Tour
+	FOREIGN KEY (MaTour) REFERENCES Tour(MaTour);
+    
+ALTER TABLE HoaDon ADD CONSTRAINT fk_HoaDon_KhachHang
+	FOREIGN KEY (MaKhachHang) REFERENCES KhachHang(MaKH);
+ALTER TABLE HoaDon ADD CONSTRAINT fk_HoaDon_KhuyenMai
+	FOREIGN KEY (MaKhuyenMai) REFERENCES KhuyenMai(MaKhuyenMai);
+    
+ALTER TABLE ChiTietHoaDon ADD CONSTRAINT fk_ChiTietHoaDon_HoaDon
+	FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHoaDon);
