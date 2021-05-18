@@ -13,7 +13,7 @@ import com.myclass.dto.TaiKhoanDTO;
 import com.myclass.dto.TourDTO;
 
 public class HopDongDAO {
-	private final static String tableName = "HopDong";
+	private final static String tableName = "hopdong";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
@@ -106,8 +106,8 @@ public class HopDongDAO {
 	public void add(HopDongDTO dto) {
 		try {
 			conn = JDBCConnection.getJDBCConnection(tableName);
-			String sql = "INSERT INTO "
-					+ "HopDong(`MaHD`, `NgayLapHD`, `NoiDung`, `MaTour`)"
+			String sql = "INSERT INTO " + tableName
+					+ " (`MaHD`, `NgayLapHD`, `NoiDung`, `MaTour`)"
 					+ "VALUES (?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -151,7 +151,7 @@ public class HopDongDAO {
 	public void update(HopDongDTO dto) {
 		try {
 			conn = JDBCConnection.getJDBCConnection(tableName);
-			String sql = "UPDATE HopDong SET "
+			String sql = "UPDATE + tableName + SET "
 					+ "NgayLapHD = ?, NoiDung = ?, MaTour = ?"
 					+ "WHERE MaHD = ?";
 			pstmt = conn.prepareStatement(sql);
