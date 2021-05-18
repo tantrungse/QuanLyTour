@@ -11,9 +11,14 @@ public class TourBUS {
 	
 	public TourBUS() {}
 	
-	public TourDTO getById(String maTour) {
-		
-		return tourDAO.getById(maTour);
+	public ArrayList<TourDTO> getByMaTour(String MaTour) {
+		listTourDTO = tourDAO.getByMaTour(MaTour);
+		return listTourDTO;
+	}
+	
+	public ArrayList<TourDTO> getByTenTour(String TenTour) {
+		listTourDTO = tourDAO.getByTenTour(TenTour);
+		return listTourDTO;
 	}
 	
 	
@@ -27,5 +32,10 @@ public class TourBUS {
 	
 	public void deleteById(String maTour) {
 		tourDAO.deleteById(maTour);
+	}
+	
+	public ArrayList<TourDTO> getAll() {
+		listTourDTO = tourDAO.getAll();
+		return listTourDTO;
 	}
 }

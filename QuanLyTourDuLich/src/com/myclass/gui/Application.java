@@ -189,7 +189,7 @@ public class Application extends JFrame {
 		sidePane.add(menuSidePane);
 		menuSidePane.setLayout(new GridLayout(5, 0, 0, 0));
 		
-		JLabel lblAdminMgmt = new JLabel("Quản lý tài khoản hệ thống");
+		JLabel lblAdminMgmt = new JLabel("Quáº£n lÃ½ tÃ i khoáº£n há»‡ thá»‘ng");
 		lblAdminMgmt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -200,7 +200,7 @@ public class Application extends JFrame {
 		lblAdminMgmt.setFont(new Font("Consolas", Font.BOLD, 16));
 		menuSidePane.add(lblAdminMgmt);
 		
-		JLabel lblTourMgmt = new JLabel("Quản lý tour");
+		JLabel lblTourMgmt = new JLabel("Quáº£n lÃ½ tour");
 		lblTourMgmt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -251,7 +251,7 @@ public class Application extends JFrame {
 		cardQuanLyTaiKhoan.setLayout(null);
 		cardLayout.addLayoutComponent(cardQuanLyTaiKhoan, "cardQuanLyTaiKhoan");
 		
-		JLabel lblTaiKhoan_Header = new JLabel("Trang quản lý tài khoản");
+		JLabel lblTaiKhoan_Header = new JLabel("Trang quáº£n lÃ½ tÃ i khoáº£n");
 		lblTaiKhoan_Header.setBounds(0, 0, 400, 100);
 		lblTaiKhoan_Header.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardQuanLyTaiKhoan.add(lblTaiKhoan_Header);
@@ -260,7 +260,7 @@ public class Application extends JFrame {
 		taiKhoanScrollPane.setBounds(60, 450, 390, 300);
 		cardQuanLyTaiKhoan.add(taiKhoanScrollPane);
 		
-		JLabel lblTaiKhoanSearch = new JLabel("Tìm kiếm:");
+		JLabel lblTaiKhoanSearch = new JLabel("TÃ¬m kiáº¿m:");
 		lblTaiKhoanSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblTaiKhoanSearch.setBounds(20, 400, 80, 30);
 		cardQuanLyTaiKhoan.add(lblTaiKhoanSearch);
@@ -270,7 +270,7 @@ public class Application extends JFrame {
 		cardQuanLyTaiKhoan.add(txtTaiKhoanSearch);
 		txtTaiKhoanSearch.setColumns(10);
 		
-		JButton btnTaiKhoanSearch = new JButton("Tìm\r\n");
+		JButton btnTaiKhoanSearch = new JButton("TÃ¬m\r\n");
 		btnTaiKhoanSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int quyen = -1;
@@ -280,10 +280,10 @@ public class Application extends JFrame {
 				for(TaiKhoanDTO dto : listKQ) {
 					quyen = dto.getQuyen();
 					if(quyen == 0) {
-						tenQuyen = "Quản trị viên";
+						tenQuyen = "Quáº£n trá»‹ viÃªn";
 					}
 					else if(quyen == 1) {
-						tenQuyen = "Nhân viên";
+						tenQuyen = "NhÃ¢n viÃªn";
 					}
 					taiKhoanTblModel.addRow(new Object[] {
 							dto.getTenTK(), dto.getMatKhau(), tenQuyen
@@ -295,7 +295,7 @@ public class Application extends JFrame {
 		btnTaiKhoanSearch.setBounds(310, 400, 80, 30);
 		cardQuanLyTaiKhoan.add(btnTaiKhoanSearch);
 		
-		String[] colNamesTblTaiKhoan = {"Tài khoản", "Mật khẩu", "Quyền"};
+		String[] colNamesTblTaiKhoan = {"TÃ i khoáº£n", "Máº­t kháº©u", "Quyá»�n"};
 		tblTaiKhoan = new JTable();
 		tblTaiKhoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblTaiKhoan.setRowHeight(50);
@@ -309,7 +309,7 @@ public class Application extends JFrame {
 		taiKhoanScrollPane.setViewportView(tblTaiKhoan);
 		tblTaiKhoan.setFillsViewportHeight(true);
 		
-		JButton btnTaiKhoanReload = new JButton("Tải lại bảng");
+		JButton btnTaiKhoanReload = new JButton("Táº£i láº¡i báº£ng");
 		btnTaiKhoanReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				taiKhoanTblModel.setRowCount(0);
@@ -320,7 +320,7 @@ public class Application extends JFrame {
 		btnTaiKhoanReload.setBounds(475, 450, 200, 30);
 		cardQuanLyTaiKhoan.add(btnTaiKhoanReload);
 		
-		JButton btnTaiKhoanDel = new JButton("Xóa tài khoản");
+		JButton btnTaiKhoanDel = new JButton("XÃ³a tÃ i khoáº£n");
 		btnTaiKhoanDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblTaiKhoan.getSelectedRow();
@@ -335,7 +335,7 @@ public class Application extends JFrame {
 		btnTaiKhoanDel.setBounds(475, 500, 200, 30);
 		cardQuanLyTaiKhoan.add(btnTaiKhoanDel);
 		
-		JButton btnTaiKhoan_Add = new JButton("Thêm tài khoản");
+		JButton btnTaiKhoan_Add = new JButton("ThÃªm tÃ i khoáº£n");
 		btnTaiKhoan_Add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardAddTaiKhoan");
@@ -345,7 +345,7 @@ public class Application extends JFrame {
 		btnTaiKhoan_Add.setBounds(475, 550, 200, 30);
 		cardQuanLyTaiKhoan.add(btnTaiKhoan_Add);
 		
-		btnTaiKhoan_Update = new JButton("Cập nhật tài khoản");
+		btnTaiKhoan_Update = new JButton("Cáº­p nháº­t tÃ i khoáº£n");
 		addActionListenerBtnTaiKhoan_Update();
 		btnTaiKhoan_Update.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTaiKhoan_Update.setBounds(475, 600, 200, 30);
@@ -377,12 +377,12 @@ public class Application extends JFrame {
 		cardAddTaiKhoan.setLayout(null);
 		cardLayout.addLayoutComponent(cardAddTaiKhoan, "cardAddTaiKhoan");
 		
-		JLabel lblAddAdminContent = new JLabel("Trang thêm tài khoản");
+		JLabel lblAddAdminContent = new JLabel("Trang thÃªm tÃ i khoáº£n");
 		lblAddAdminContent.setBounds(0, 0, 400, 100);
 		lblAddAdminContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardAddTaiKhoan.add(lblAddAdminContent);
 		
-		JLabel lblAddTenTaiKhoan = new JLabel("Nhập tên tài khoản:");
+		JLabel lblAddTenTaiKhoan = new JLabel("Nháº­p tÃªn tÃ i khoáº£n:");
 		lblAddTenTaiKhoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddTenTaiKhoan.setBounds(50, 150, 150, 30);
 		cardAddTaiKhoan.add(lblAddTenTaiKhoan);
@@ -392,7 +392,7 @@ public class Application extends JFrame {
 		txtAddTenTaiKhoan.setBounds(200, 150, 300, 30);
 		cardAddTaiKhoan.add(txtAddTenTaiKhoan);
 		
-		JLabel lblAddMatKhau = new JLabel("Nhập mật khẩu:");
+		JLabel lblAddMatKhau = new JLabel("Nháº­p máº­t kháº©u:");
 		lblAddMatKhau.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMatKhau.setBounds(50, 200, 150, 30);
 		cardAddTaiKhoan.add(lblAddMatKhau);
@@ -402,20 +402,20 @@ public class Application extends JFrame {
 		txtAddMatKhau.setBounds(200, 200, 300, 30);
 		cardAddTaiKhoan.add(txtAddMatKhau);
 		
-		JLabel lblAddQuyen = new JLabel("Chọn quyền:");
+		JLabel lblAddQuyen = new JLabel("Chá»�n quyá»�n:");
 		lblAddQuyen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddQuyen.setBounds(50, 250, 150, 30);
 		cardAddTaiKhoan.add(lblAddQuyen);
 		
-		rBtnAddQuanTriVien = new JRadioButton("Quản trị viên");
-		rBtnAddQuanTriVien.setActionCommand("Quản trị viên");
+		rBtnAddQuanTriVien = new JRadioButton("Quáº£n trá»‹ viÃªn");
+		rBtnAddQuanTriVien.setActionCommand("Quáº£n trá»‹ viÃªn");
 		rBtnAddQuanTriVien.setSelected(true);
 		rBtnAddQuanTriVien.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		rBtnAddQuanTriVien.setBounds(200, 250, 120, 30);
 		cardAddTaiKhoan.add(rBtnAddQuanTriVien);
 		
-		rBtnAddNhanVien = new JRadioButton("Nhân viên");
-		rBtnAddNhanVien.setActionCommand("Nhân viên");
+		rBtnAddNhanVien = new JRadioButton("NhÃ¢n viÃªn");
+		rBtnAddNhanVien.setActionCommand("NhÃ¢n viÃªn");
 		rBtnAddNhanVien.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		rBtnAddNhanVien.setBounds(350, 250, 100, 30);
 		cardAddTaiKhoan.add(rBtnAddNhanVien);
@@ -424,7 +424,7 @@ public class Application extends JFrame {
 		bgAddQuyen.add(rBtnAddQuanTriVien);
 		bgAddQuyen.add(rBtnAddNhanVien);
 		
-		JButton btnAddTaiKhoan_Add = new JButton("Thêm mới");
+		JButton btnAddTaiKhoan_Add = new JButton("ThÃªm má»›i");
 		btnAddTaiKhoan_Add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String tenQuyen = bgAddQuyen.getSelection().getActionCommand();
@@ -453,7 +453,7 @@ public class Application extends JFrame {
 		btnAddTaiKhoan_Add.setBounds(150, 300, 120, 30);
 		cardAddTaiKhoan.add(btnAddTaiKhoan_Add);
 		
-		JButton btnAddTaiKhoan_QuayLai = new JButton("Quay lại");
+		JButton btnAddTaiKhoan_QuayLai = new JButton("Quay láº¡i");
 		btnAddTaiKhoan_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTaiKhoan");
@@ -470,12 +470,12 @@ public class Application extends JFrame {
 		cardUpdateTaiKhoan.setLayout(null);
 		cardLayout.addLayoutComponent(cardUpdateTaiKhoan, "cardUpdateTaiKhoan");
 		
-		JLabel lblUpdateAdminContent = new JLabel("Trang cập nhật tài khoản");
+		JLabel lblUpdateAdminContent = new JLabel("Trang cáº­p nháº­t tÃ i khoáº£n");
 		lblUpdateAdminContent.setBounds(0, 0, 400, 100);
 		lblUpdateAdminContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardUpdateTaiKhoan.add(lblUpdateAdminContent);
 		
-		JLabel lblUpdateTenTaiKhoan = new JLabel("Nhập tên tài khoản:");
+		JLabel lblUpdateTenTaiKhoan = new JLabel("Nháº­p tÃªn tÃ i khoáº£n:");
 		lblUpdateTenTaiKhoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateTenTaiKhoan.setBounds(50, 150, 150, 30);
 		cardUpdateTaiKhoan.add(lblUpdateTenTaiKhoan);
@@ -485,7 +485,7 @@ public class Application extends JFrame {
 		txtUpdateTenTaiKhoan.setBounds(200, 150, 300, 30);
 		cardUpdateTaiKhoan.add(txtUpdateTenTaiKhoan);
 		
-		JLabel lblUpdateMatKhau = new JLabel("Nhập mật khẩu:");
+		JLabel lblUpdateMatKhau = new JLabel("Nháº­p máº­t kháº©u:");
 		lblUpdateMatKhau.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMatKhau.setBounds(50, 200, 150, 30);
 		cardUpdateTaiKhoan.add(lblUpdateMatKhau);
@@ -495,20 +495,20 @@ public class Application extends JFrame {
 		txtUpdateMatKhau.setBounds(200, 200, 300, 30);
 		cardUpdateTaiKhoan.add(txtUpdateMatKhau);
 		
-		JLabel lblUpdateQuyen = new JLabel("Chọn quyền:");
+		JLabel lblUpdateQuyen = new JLabel("Chá»�n quyá»�n:");
 		lblUpdateQuyen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateQuyen.setBounds(50, 250, 150, 30);
 		cardUpdateTaiKhoan.add(lblUpdateQuyen);
 		
-		rBtnUpdateQuanTriVien = new JRadioButton("Quản trị viên");
-		rBtnUpdateQuanTriVien.setActionCommand("Quản trị viên");
+		rBtnUpdateQuanTriVien = new JRadioButton("Quáº£n trá»‹ viÃªn");
+		rBtnUpdateQuanTriVien.setActionCommand("Quáº£n trá»‹ viÃªn");
 		rBtnUpdateQuanTriVien.setSelected(true);
 		rBtnUpdateQuanTriVien.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		rBtnUpdateQuanTriVien.setBounds(200, 250, 120, 30);
 		cardUpdateTaiKhoan.add(rBtnUpdateQuanTriVien);
 		
-		rBtnUpdateNhanVien = new JRadioButton("Nhân viên");
-		rBtnUpdateNhanVien.setActionCommand("Nhân viên");
+		rBtnUpdateNhanVien = new JRadioButton("NhÃ¢n viÃªn");
+		rBtnUpdateNhanVien.setActionCommand("NhÃ¢n viÃªn");
 		rBtnUpdateNhanVien.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		rBtnUpdateNhanVien.setBounds(350, 250, 100, 30);
 		cardUpdateTaiKhoan.add(rBtnUpdateNhanVien);
@@ -517,7 +517,7 @@ public class Application extends JFrame {
 		bgUpdateQuyen.add(rBtnUpdateQuanTriVien);
 		bgUpdateQuyen.add(rBtnUpdateNhanVien);
 		
-		JButton btnUpdateTaiKhoan = new JButton("Cập nhật");
+		JButton btnUpdateTaiKhoan = new JButton("Cáº­p nháº­t");
 		btnUpdateTaiKhoan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblTaiKhoan.getSelectedRow();
@@ -525,13 +525,13 @@ public class Application extends JFrame {
 				TaiKhoanDTO dto = new TaiKhoanDTO();
 				
 				if(!taiKhoanTblModel.getValueAt(selectedRow, 0).equals(txtUpdateTenTaiKhoan.getText())) {
-					JOptionPane.showMessageDialog(new JFrame(), "Không được thay đổi tên tài khoản!");
+					JOptionPane.showMessageDialog(new JFrame(), "KhÃ´ng Ä‘Æ°á»£c thay Ä‘á»•i tÃªn tÃ i khoáº£n!");
 					return;
 				}
 				
 				dto.setTenTK(txtUpdateTenTaiKhoan.getText());
 				dto.setMatKhau(txtUpdateMatKhau.getText());
-				if(tenQuyen.equals("Quản trị viên")) {
+				if(tenQuyen.equals("Quáº£n trá»‹ viÃªn")) {
 					dto.setQuyen(0);
 				}
 				else {
@@ -548,7 +548,7 @@ public class Application extends JFrame {
 		btnUpdateTaiKhoan.setBounds(150, 300, 100, 30);
 		cardUpdateTaiKhoan.add(btnUpdateTaiKhoan);
 		
-		JButton btnUpdateTaiKhoan_QuayLai = new JButton("Quay lại");
+		JButton btnUpdateTaiKhoan_QuayLai = new JButton("Quay láº¡i");
 		btnUpdateTaiKhoan_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTaiKhoan");
@@ -568,7 +568,7 @@ public class Application extends JFrame {
 		cardQuanLyTour.setLayout(null);
 		cardLayout.addLayoutComponent(cardQuanLyTour, "cardQuanLyTour");
 		
-		JLabel lblTourSearch = new JLabel("Tìm kiếm:");
+		JLabel lblTourSearch = new JLabel("TÃ¬m kiáº¿m:");
 		lblTourSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblTourSearch.setBounds(20, 0, 80, 30);
 		cardQuanLyTour.add(lblTourSearch);
@@ -578,18 +578,60 @@ public class Application extends JFrame {
 		cardQuanLyTour.add(txtTourSearch);
 		txtTourSearch.setColumns(10);
 		
-		JButton btnTourSearch = new JButton("Tìm");
+		JButton btnTourSearch = new JButton("TÃ¬m");
+		
 		btnTourSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<TaiKhoanDTO> listKQ = taiKhoanBUS.getByTenTK(txtTourSearch.getText());
-				taiKhoanTblModel.setRowCount(0); // xoa tat ca row
-				for(TaiKhoanDTO dto : listKQ) {
-					taiKhoanTblModel.addRow(new Object[] {
-							dto.getTenTK(), dto.getMatKhau(), dto.getQuyen()
-					});
-				}
+				ArrayList<TourDTO> listKQ;
+				Object[] options = {
+			            "Tìm kiếm theo mã Tour", "Tìm kiếm theo tên Tour", "Đóng"
+			        };
+			        int select = JOptionPane.showOptionDialog(btnTourSearch, "Bạn muốn tìm kiếm theo phương thức nào?", "Tùy chọn", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+			        
+			        //System.out.println("select: " + select);
+			        //mÃ£ -> select: 0
+			        //tÃªn -> select: 1
+			        // chi phi -> select: 2
+			        // Ä‘Ã³ng -> select: 3
+			        
+			        if(select == 0){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập mã Tour !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = tourBUS.getByMaTour(input);
+			                tourTblModel.setRowCount(0);
+			                
+			                for(TourDTO dto : listKQ) {
+								tourTblModel.addRow(new Object[] {
+										dto.getMaTour(), dto.getTenTour(), dto.getGiaVe(), dto.getDiemKhoiHanh(), dto.getDiemDen()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
+			        
+			        if(select == 1){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập tên Tour !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = tourBUS.getByTenTour(input);
+			                tourTblModel.setRowCount(0);
+			                
+			                for(TourDTO dto : listKQ) {
+								tourTblModel.addRow(new Object[] {
+										dto.getMaTour(), dto.getTenTour(), dto.getGiaVe(), dto.getDiemKhoiHanh(), dto.getDiemDen()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
 			}
 		});
+		
 		btnTourSearch.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTourSearch.setBounds(310, 0, 80, 30);
 		cardQuanLyTour.add(btnTourSearch);
@@ -624,7 +666,7 @@ public class Application extends JFrame {
 		});
 		tblTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblTour.setRowHeight(50);
-		String[] colNamesTblTour = {"Mã tour", "Tên tour", "Giá vé", "Điểm khởi hành", "Điểm đến"};
+		String[] colNamesTblTour = {"MÃ£ tour", "TÃªn tour", "GiÃ¡ vÃ©", "Ä�iá»ƒm khá»Ÿi hÃ nh", "Ä�iá»ƒm Ä‘áº¿n"};
 		tourTblModel = new DefaultTableModel();
 		tblTour.setModel(tourTblModel);
 		for(String colName : colNamesTblTour) {
@@ -635,18 +677,28 @@ public class Application extends JFrame {
 		tourScrollPane.setViewportView(tblTour);
 		tblTour.setFillsViewportHeight(true);
 		
-		JButton btnTourReload = new JButton("Tải lại bảng");
+		JButton btnTourReload = new JButton("Táº£i láº¡i báº£ng");
 		btnTourReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tourTblModel.setRowCount(0);
-				loadTblTour();
+				//tourTblModel.setRowCount(0);
+				//loadTblTour();
+				ArrayList<TourDTO> listKQ;
+				listKQ = tourBUS.getAll();
+		        
+		        tourTblModel.setRowCount(0);
+		        
+		        listKQ.forEach(dto -> {
+		            tourTblModel.addRow(new Object[]{
+		                dto.getMaTour(), dto.getTenTour(), dto.getGiaVe(), dto.getDiemKhoiHanh(), dto.getDiemDen()
+		            });
+		        });
 			}
 		});
 		btnTourReload.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTourReload.setBounds(675, 50, 150, 30);
 		cardQuanLyTour.add(btnTourReload);
 		
-		JButton btnTourDel = new JButton("Xóa tour");
+		JButton btnTourDel = new JButton("XÃ³a tour");
 		btnTourDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblTour.getSelectedRow();
@@ -660,7 +712,7 @@ public class Application extends JFrame {
 		btnTourDel.setBounds(675, 100, 150, 30);;
 		cardQuanLyTour.add(btnTourDel);
 		
-		JButton btnTourAdd = new JButton("Thêm tour");
+		JButton btnTourAdd = new JButton("ThÃªm tour");
 		btnTourAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardAddTour");
@@ -670,13 +722,13 @@ public class Application extends JFrame {
 		btnTourAdd.setBounds(675, 150, 150, 30);
 		cardQuanLyTour.add(btnTourAdd);
 		
-		btnTour_Update = new JButton("Cập nhật tour");
+		btnTour_Update = new JButton("Cáº­p nháº­t tour");
 		addActionListenerBtnTour_Update();
 		btnTour_Update.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTour_Update.setBounds(675, 200, 150, 30);
 		cardQuanLyTour.add(btnTour_Update);
 		
-		JButton btnTour_TaoHD = new JButton("Tạo hợp đồng");
+		JButton btnTour_TaoHD = new JButton("Táº¡o há»£p Ä‘á»“ng");
 		btnTour_TaoHD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardAddHopDong");
@@ -687,7 +739,7 @@ public class Application extends JFrame {
 		btnTour_TaoHD.setBounds(50, 350, 150, 30);
 		cardQuanLyTour.add(btnTour_TaoHD);
 		
-		JButton btnTour_TaoDoan = new JButton("Tạo đoàn");
+		JButton btnTour_TaoDoan = new JButton("Táº¡o Ä‘oÃ n");
 		btnTour_TaoDoan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardAddDoan");
@@ -698,13 +750,13 @@ public class Application extends JFrame {
 		btnTour_TaoDoan.setBounds(225, 350, 150, 30);
 		cardQuanLyTour.add(btnTour_TaoDoan);
 		
-		JButton btnTour_TaoKeHoach = new JButton("Tạo kế hoạch");
+		JButton btnTour_TaoKeHoach = new JButton("Táº¡o káº¿ hoáº¡ch");
 		addActionListenerBtnTour_Update();
 		btnTour_TaoKeHoach.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTour_TaoKeHoach.setBounds(400, 350, 150, 30);
 		cardQuanLyTour.add(btnTour_TaoKeHoach);
 		
-		JLabel lblThongTinHopDong = new JLabel("Thông tin hợp đồng:");
+		JLabel lblThongTinHopDong = new JLabel("ThÃ´ng tin há»£p Ä‘á»“ng:");
 		lblThongTinHopDong.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblThongTinHopDong.setBounds(50, 410, 200, 30);
 		cardQuanLyTour.add(lblThongTinHopDong);
@@ -716,7 +768,7 @@ public class Application extends JFrame {
 		tblTour_HopDong = new JTable();
 		tblTour_HopDong.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblTour_HopDong.setRowHeight(50);
-		String[] colNamesTblTour_HopDong = {"Mã hợp đồng", "Ngày lập hợp đồng", "Nội dung", "Mã tour"};
+		String[] colNamesTblTour_HopDong = {"MÃ£ há»£p Ä‘á»“ng", "NgÃ y láº­p há»£p Ä‘á»“ng", "Ná»™i dung", "MÃ£ tour"};
 		tour_hopDongTblModel = new DefaultTableModel();
 		tblTour_HopDong.setModel(tour_hopDongTblModel);
 		for(String colName : colNamesTblTour_HopDong) {
@@ -726,7 +778,7 @@ public class Application extends JFrame {
 		tour_hopDongScrollPane.setViewportView(tblTour_HopDong);
 		tblTour_HopDong.setFillsViewportHeight(true);
 		
-		JButton btnTour_HopDongLayout = new JButton("Xem danh sách");
+		JButton btnTour_HopDongLayout = new JButton("Xem danh sÃ¡ch");
 		btnTour_HopDongLayout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyHopDong");
@@ -737,7 +789,7 @@ public class Application extends JFrame {
 		btnTour_HopDongLayout.setBounds(675, 470, 150, 30);
 		cardQuanLyTour.add(btnTour_HopDongLayout);
 		
-		JLabel lblThongTinDoan = new JLabel("Thông tin đoàn du lịch:");
+		JLabel lblThongTinDoan = new JLabel("ThÃ´ng tin Ä‘oÃ n du lá»‹ch:");
 		lblThongTinDoan.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblThongTinDoan.setBounds(50, 530, 200, 30);
 		cardQuanLyTour.add(lblThongTinDoan);
@@ -749,7 +801,7 @@ public class Application extends JFrame {
 		tblTour_Doan = new JTable();
 		tblTour_Doan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblTour_Doan.setRowHeight(50);
-		String[] colNamesTblTour_Doan = {"Mã đoàn", "Số người", "Mã tour", "Mã HDV"};
+		String[] colNamesTblTour_Doan = {"MÃ£ Ä‘oÃ n", "Sá»‘ ngÆ°á»�i", "MÃ£ tour", "MÃ£ HDV"};
 		tour_doanTblModel = new DefaultTableModel();
 		tblTour_Doan.setModel(tour_doanTblModel);
 		for(String colName : colNamesTblTour_Doan) {
@@ -759,7 +811,7 @@ public class Application extends JFrame {
 		tour_doanScrollPane.setViewportView(tblTour_Doan);
 		tblTour_Doan.setFillsViewportHeight(true);
 		
-		JButton btnTour_DoanLayout = new JButton("Xem danh sách");
+		JButton btnTour_DoanLayout = new JButton("Xem danh sÃ¡ch");
 		btnTour_DoanLayout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyDoan");
@@ -770,7 +822,7 @@ public class Application extends JFrame {
 		btnTour_DoanLayout.setBounds(675, 590, 150, 30);
 		cardQuanLyTour.add(btnTour_DoanLayout);
 		
-		JLabel lblKeHoachTour = new JLabel("Kế hoạch tour:");
+		JLabel lblKeHoachTour = new JLabel("Káº¿ hoáº¡ch tour:");
 		lblKeHoachTour.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblKeHoachTour.setBounds(50, 650, 200, 30);
 		cardQuanLyTour.add(lblKeHoachTour);
@@ -782,7 +834,7 @@ public class Application extends JFrame {
 		tblTour_KeHoachTour = new JTable();
 		tblTour_KeHoachTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblTour_KeHoachTour.setRowHeight(50);
-		String[] colNamesTblKeHoachTour = {"Mã kế hoạch", "Ngày bắt đầu", "Ngày kết thúc", "Mã tour"};
+		String[] colNamesTblKeHoachTour = {"MÃ£ káº¿ hoáº¡ch", "NgÃ y báº¯t Ä‘áº§u", "NgÃ y káº¿t thÃºc", "MÃ£ tour"};
 		tour_keHoachTourTblModel = new DefaultTableModel();
 		tblTour_KeHoachTour.setModel(tour_keHoachTourTblModel);
 		for(String colName : colNamesTblKeHoachTour) {
@@ -792,7 +844,7 @@ public class Application extends JFrame {
 		tour_keHoachTourScrollPane.setViewportView(tblTour_KeHoachTour);
 		tblTour_KeHoachTour.setFillsViewportHeight(true);
 		
-		JButton btnTour_KeHoachLayout = new JButton("Xem danh sách");
+		JButton btnTour_KeHoachLayout = new JButton("Xem danh sÃ¡ch");
 		addActionListenerBtnTour_Update();
 		btnTour_KeHoachLayout.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTour_KeHoachLayout.setBounds(675, 710, 150, 30);
@@ -805,12 +857,12 @@ public class Application extends JFrame {
 		cardAddTour.setLayout(null);
 		cardLayout.addLayoutComponent(cardAddTour, "cardAddTour");
 		
-		JLabel lblAddTourContent = new JLabel("Trang thêm tour");
+		JLabel lblAddTourContent = new JLabel("Trang thÃªm tour");
 		lblAddTourContent.setBounds(0, 0, 400, 100);
 		lblAddTourContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardAddTour.add(lblAddTourContent);
 		
-		JLabel lblAddMaTour = new JLabel("Nhập mã tour:");
+		JLabel lblAddMaTour = new JLabel("Nháº­p mÃ£ tour:");
 		lblAddMaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMaTour.setBounds(50, 100, 150, 30);
 		cardAddTour.add(lblAddMaTour);
@@ -820,7 +872,7 @@ public class Application extends JFrame {
 		txtAddMaTour.setBounds(200, 100, 300, 30);
 		cardAddTour.add(txtAddMaTour);
 		
-		JLabel lblAddTenTour = new JLabel("Nhập tên tour:");
+		JLabel lblAddTenTour = new JLabel("Nháº­p tÃªn tour:");
 		lblAddTenTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddTenTour.setBounds(50, 150, 150, 30);
 		cardAddTour.add(lblAddTenTour);
@@ -830,7 +882,7 @@ public class Application extends JFrame {
 		txtAddTenTour.setBounds(200, 150, 300, 30);
 		cardAddTour.add(txtAddTenTour);
 		
-		JLabel lblAddGiaVe = new JLabel("Nhập giá vé:");
+		JLabel lblAddGiaVe = new JLabel("Nháº­p giÃ¡ vÃ©:");
 		lblAddGiaVe.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddGiaVe.setBounds(50, 200, 150, 30);
 		cardAddTour.add(lblAddGiaVe);
@@ -840,7 +892,7 @@ public class Application extends JFrame {
 		txtAddGiaVe.setBounds(200, 200, 300, 30);
 		cardAddTour.add(txtAddGiaVe);
 		
-		JLabel lblAddDiemKhoiHanh = new JLabel("Nhập điểm khởi hành:");
+		JLabel lblAddDiemKhoiHanh = new JLabel("Nháº­p Ä‘iá»ƒm khá»Ÿi hÃ nh:");
 		lblAddDiemKhoiHanh.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddDiemKhoiHanh.setBounds(50, 250, 150, 30);
 		cardAddTour.add(lblAddDiemKhoiHanh);
@@ -850,7 +902,7 @@ public class Application extends JFrame {
 		txtAddDiemKhoiHanh.setBounds(200, 250, 300, 30);
 		cardAddTour.add(txtAddDiemKhoiHanh);
 		
-		JLabel lblAddDiemDen = new JLabel("Nhập điểm đến:");
+		JLabel lblAddDiemDen = new JLabel("Nháº­p Ä‘iá»ƒm Ä‘áº¿n:");
 		lblAddDiemDen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddDiemDen.setBounds(50, 300, 150, 30);
 		cardAddTour.add(lblAddDiemDen);
@@ -860,7 +912,7 @@ public class Application extends JFrame {
 		txtAddDiemDen.setBounds(200, 300, 300, 30);
 		cardAddTour.add(txtAddDiemDen);
 		
-		JButton btnAddTour_ThemMoi = new JButton("Thêm mới");
+		JButton btnAddTour_ThemMoi = new JButton("ThÃªm má»›i");
 		btnAddTour_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TourDTO dto = new TourDTO();
@@ -887,7 +939,7 @@ public class Application extends JFrame {
 		btnAddTour_ThemMoi.setBounds(150, 400, 120, 30);
 		cardAddTour.add(btnAddTour_ThemMoi);
 		
-		JButton btnAddTour_QuayLai = new JButton("Quay lại");
+		JButton btnAddTour_QuayLai = new JButton("Quay láº¡i");
 		btnAddTour_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -904,12 +956,12 @@ public class Application extends JFrame {
 		cardUpdateTour.setLayout(null);
 		cardLayout.addLayoutComponent(cardUpdateTour, "cardUpdateTour");
 		
-		JLabel lblUpdateTourContent = new JLabel("Trang thêm tour");
+		JLabel lblUpdateTourContent = new JLabel("Trang thÃªm tour");
 		lblUpdateTourContent.setBounds(0, 0, 400, 100);
 		lblUpdateTourContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardUpdateTour.add(lblUpdateTourContent);
 		
-		JLabel lblUpdateMaTour = new JLabel("Nhập mã tour:");
+		JLabel lblUpdateMaTour = new JLabel("Nháº­p mÃ£ tour:");
 		lblUpdateMaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMaTour.setBounds(50, 100, 150, 30);
 		cardUpdateTour.add(lblUpdateMaTour);
@@ -919,7 +971,7 @@ public class Application extends JFrame {
 		txtUpdateMaTour.setBounds(200, 100, 300, 30);
 		cardUpdateTour.add(txtUpdateMaTour);
 		
-		JLabel lblUpdateTenTour = new JLabel("Nhập tên tour:");
+		JLabel lblUpdateTenTour = new JLabel("Nháº­p tÃªn tour:");
 		lblUpdateTenTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateTenTour.setBounds(50, 150, 150, 30);
 		cardUpdateTour.add(lblUpdateTenTour);
@@ -929,7 +981,7 @@ public class Application extends JFrame {
 		txtUpdateTenTour.setBounds(200, 150, 300, 30);
 		cardUpdateTour.add(txtUpdateTenTour);
 		
-		JLabel lblUpdateGiaVe = new JLabel("Nhập giá vé:");
+		JLabel lblUpdateGiaVe = new JLabel("Nháº­p giÃ¡ vÃ©:");
 		lblUpdateGiaVe.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateGiaVe.setBounds(50, 200, 150, 30);
 		cardUpdateTour.add(lblUpdateGiaVe);
@@ -939,7 +991,7 @@ public class Application extends JFrame {
 		txtUpdateGiaVe.setBounds(200, 200, 300, 30);
 		cardUpdateTour.add(txtUpdateGiaVe);
 		
-		JLabel lblUpdateDiemKhoiHanh = new JLabel("Nhập điểm khởi hành:");
+		JLabel lblUpdateDiemKhoiHanh = new JLabel("Nháº­p Ä‘iá»ƒm khá»Ÿi hÃ nh:");
 		lblUpdateDiemKhoiHanh.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateDiemKhoiHanh.setBounds(50, 250, 150, 30);
 		cardUpdateTour.add(lblUpdateDiemKhoiHanh);
@@ -949,7 +1001,7 @@ public class Application extends JFrame {
 		txtUpdateDiemKhoiHanh.setBounds(200, 250, 300, 30);
 		cardUpdateTour.add(txtUpdateDiemKhoiHanh);
 		
-		JLabel lblUpdateDiemDen = new JLabel("Nhập điểm đến:");
+		JLabel lblUpdateDiemDen = new JLabel("Nháº­p Ä‘iá»ƒm Ä‘áº¿n:");
 		lblUpdateDiemDen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateDiemDen.setBounds(50, 300, 150, 30);
 		cardUpdateTour.add(lblUpdateDiemDen);
@@ -959,7 +1011,7 @@ public class Application extends JFrame {
 		txtUpdateDiemDen.setBounds(200, 300, 300, 30);
 		cardUpdateTour.add(txtUpdateDiemDen);
 		
-		JButton btnUpdateTour_ThemMoi = new JButton("Cập nhật");
+		JButton btnUpdateTour_ThemMoi = new JButton("Cáº­p nháº­t");
 		btnUpdateTour_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TourDTO dto = new TourDTO();
@@ -986,7 +1038,7 @@ public class Application extends JFrame {
 		btnUpdateTour_ThemMoi.setBounds(150, 400, 120, 30);
 		cardUpdateTour.add(btnUpdateTour_ThemMoi);
 		
-		JButton btnUpdateTour_QuayLai = new JButton("Quay lại");
+		JButton btnUpdateTour_QuayLai = new JButton("Quay láº¡i");
 		btnUpdateTour_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -1003,12 +1055,12 @@ public class Application extends JFrame {
 		cardQuanLyHdv.setLayout(null);
 		cardLayout.addLayoutComponent(cardQuanLyHdv, "cardQuanLyHdv");
 		
-		JLabel lblHdvCard = new JLabel("Trang quản lý hướng dẫn viên");
+		JLabel lblHdvCard = new JLabel("Trang quáº£n lÃ½ hÆ°á»›ng dáº«n viÃªn");
 		lblHdvCard.setBounds(0, 0, 500, 100);
 		lblHdvCard.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardQuanLyHdv.add(lblHdvCard);
 		
-		JLabel lblHdvSearch = new JLabel("Tìm kiếm:");
+		JLabel lblHdvSearch = new JLabel("TÃ¬m kiáº¿m:");
 		lblHdvSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblHdvSearch.setBounds(20, 400, 80, 30);
 		cardQuanLyHdv.add(lblHdvSearch);
@@ -1018,7 +1070,7 @@ public class Application extends JFrame {
 		cardQuanLyHdv.add(txtHdvSearch);
 		txtHdvSearch.setColumns(10);
 		
-		JButton btnHdvSearch = new JButton("Tìm\r\n");
+		JButton btnHdvSearch = new JButton("TÃ¬m\r\n");
 		btnHdvSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				ArrayList<TaiKhoanDTO> listKQ = taiKhoanBUS.getByTenTK(txtTourSearch.getText());
@@ -1057,7 +1109,7 @@ public class Application extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"Mã HDV", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ", "Số điện thoại"
+					"MÃ£ HDV", "Há»� tÃªn", "NgÃ y sinh", "Giá»›i tÃ­nh", "Ä�á»‹a chá»‰", "Sá»‘ Ä‘iá»‡n thoáº¡i"
 				}
 			);
 		tblHdv.setModel(hdvTblModel);
@@ -1066,7 +1118,7 @@ public class Application extends JFrame {
 		hdvScrollPane.setViewportView(tblHdv);
 		tblHdv.setFillsViewportHeight(true);
 		
-		JButton btnHdvReload = new JButton("Tải lại bảng");
+		JButton btnHdvReload = new JButton("Táº£i láº¡i báº£ng");
 		btnHdvReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				hdvTblModel.setRowCount(0);
@@ -1077,7 +1129,7 @@ public class Application extends JFrame {
 		btnHdvReload.setBounds(795, 450, 220, 30);
 		cardQuanLyHdv.add(btnHdvReload);
 		
-		JButton btnHdvDel = new JButton("Xóa hướng dẫn viên");
+		JButton btnHdvDel = new JButton("XÃ³a hÆ°á»›ng dáº«n viÃªn");
 		btnHdvDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblHdv.getSelectedRow();
@@ -1091,7 +1143,7 @@ public class Application extends JFrame {
 		btnHdvDel.setBounds(795, 500, 220, 30);;
 		cardQuanLyHdv.add(btnHdvDel);
 		
-		JButton btnHdvAdd = new JButton("Thêm hướng dẫn viên");
+		JButton btnHdvAdd = new JButton("ThÃªm hÆ°á»›ng dáº«n viÃªn");
 		btnHdvAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardAddHdv");
@@ -1101,7 +1153,7 @@ public class Application extends JFrame {
 		btnHdvAdd.setBounds(795, 550, 220, 30);
 		cardQuanLyHdv.add(btnHdvAdd);
 		
-		JButton btnHdvUpdate = new JButton("Cập nhật hướng dẫn viên");
+		JButton btnHdvUpdate = new JButton("Cáº­p nháº­t hÆ°á»›ng dáº«n viÃªn");
 		btnHdvUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardUpdateHdv");
@@ -1126,12 +1178,12 @@ public class Application extends JFrame {
 		cardAddHdv.setLayout(null);
 		cardLayout.addLayoutComponent(cardAddHdv, "cardAddHdv");
 		
-		JLabel lblAddHdvContent = new JLabel("Trang thêm hướng dẫn viên");
+		JLabel lblAddHdvContent = new JLabel("Trang thÃªm hÆ°á»›ng dáº«n viÃªn");
 		lblAddHdvContent.setBounds(0, 0, 500, 100);
 		lblAddHdvContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardAddHdv.add(lblAddHdvContent);
 		
-		JLabel lblAddMaHdv = new JLabel("Nhập mã hướng dẫn viên:");
+		JLabel lblAddMaHdv = new JLabel("Nháº­p mÃ£ hÆ°á»›ng dáº«n viÃªn:");
 		lblAddMaHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMaHdv.setBounds(50, 100, 200, 30);
 		cardAddHdv.add(lblAddMaHdv);
@@ -1141,7 +1193,7 @@ public class Application extends JFrame {
 		txtAddMaHdv.setBounds(250, 100, 300, 30);
 		cardAddHdv.add(txtAddMaHdv);
 		
-		JLabel lblAddHoTenHdv = new JLabel("Nhập họ tên:");
+		JLabel lblAddHoTenHdv = new JLabel("Nháº­p há»� tÃªn:");
 		lblAddHoTenHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddHoTenHdv.setBounds(50, 150, 200, 30);
 		cardAddHdv.add(lblAddHoTenHdv);
@@ -1151,7 +1203,7 @@ public class Application extends JFrame {
 		txtAddHoTenHdv.setBounds(250, 150, 300, 30);
 		cardAddHdv.add(txtAddHoTenHdv);
 		
-		JLabel lblAddNgaySinhHdv = new JLabel("Nhập ngày sinh:");
+		JLabel lblAddNgaySinhHdv = new JLabel("Nháº­p ngÃ y sinh:");
 		lblAddNgaySinhHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddNgaySinhHdv.setBounds(50, 200, 200, 30);
 		cardAddHdv.add(lblAddNgaySinhHdv);
@@ -1161,7 +1213,7 @@ public class Application extends JFrame {
 		txtAddNgaySinhHdv.setBounds(250, 200, 300, 30);
 		cardAddHdv.add(txtAddNgaySinhHdv);
 		
-		JLabel lblAddGioiTinhHdv = new JLabel("Nhập giới tính:");
+		JLabel lblAddGioiTinhHdv = new JLabel("Nháº­p giá»›i tÃ­nh:");
 		lblAddGioiTinhHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddGioiTinhHdv.setBounds(50, 250, 200, 30);
 		cardAddHdv.add(lblAddGioiTinhHdv);
@@ -1171,7 +1223,7 @@ public class Application extends JFrame {
 		txtAddGioiTinhHdv.setBounds(250, 250, 300, 30);
 		cardAddHdv.add(txtAddGioiTinhHdv);
 		
-		JLabel lblAddDiaChiHdv = new JLabel("Nhập địa chỉ:");
+		JLabel lblAddDiaChiHdv = new JLabel("Nháº­p Ä‘á»‹a chá»‰:");
 		lblAddDiaChiHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddDiaChiHdv.setBounds(50, 300, 200, 30);
 		cardAddHdv.add(lblAddDiaChiHdv);
@@ -1181,7 +1233,7 @@ public class Application extends JFrame {
 		txtAddDiaChiHdv.setBounds(250, 300, 300, 30);
 		cardAddHdv.add(txtAddDiaChiHdv);
 		
-		JLabel lblAddSdtHdv = new JLabel("Nhập số điện thoại:");
+		JLabel lblAddSdtHdv = new JLabel("Nháº­p sá»‘ Ä‘iá»‡n thoáº¡i:");
 		lblAddSdtHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddSdtHdv.setBounds(50, 350, 200, 30);
 		cardAddHdv.add(lblAddSdtHdv);
@@ -1191,7 +1243,7 @@ public class Application extends JFrame {
 		txtAddSdtHdv.setBounds(250, 350, 300, 30);
 		cardAddHdv.add(txtAddSdtHdv);
 		
-		JButton btnAddHdv_ThemMoi = new JButton("Thêm mới");
+		JButton btnAddHdv_ThemMoi = new JButton("ThÃªm má»›i");
 		btnAddHdv_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HuongDanVienDTO dto = new HuongDanVienDTO();
@@ -1220,7 +1272,7 @@ public class Application extends JFrame {
 		btnAddHdv_ThemMoi.setBounds(150, 400, 120, 30);
 		cardAddHdv.add(btnAddHdv_ThemMoi);
 		
-		JButton btnAddHdv_QuayLai = new JButton("Quay lại");
+		JButton btnAddHdv_QuayLai = new JButton("Quay láº¡i");
 		btnAddHdv_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyHdv");
@@ -1237,12 +1289,12 @@ public class Application extends JFrame {
 		cardUpdateHdv.setLayout(null);
 		cardLayout.addLayoutComponent(cardUpdateHdv, "cardUpdateHdv");
 		
-		JLabel lblUpdateHdvContent = new JLabel("Trang cập nhật hướng dẫn viên");
+		JLabel lblUpdateHdvContent = new JLabel("Trang cáº­p nháº­t hÆ°á»›ng dáº«n viÃªn");
 		lblUpdateHdvContent.setBounds(0, 0, 500, 100);
 		lblUpdateHdvContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardUpdateHdv.add(lblUpdateHdvContent);
 		
-		JLabel lblUpdateMaHdv = new JLabel("Nhập mã hướng dẫn viên:");
+		JLabel lblUpdateMaHdv = new JLabel("Nháº­p mÃ£ hÆ°á»›ng dáº«n viÃªn:");
 		lblUpdateMaHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMaHdv.setBounds(50, 100, 200, 30);
 		cardUpdateHdv.add(lblUpdateMaHdv);
@@ -1252,7 +1304,7 @@ public class Application extends JFrame {
 		txtUpdateMaHdv.setBounds(250, 100, 300, 30);
 		cardUpdateHdv.add(txtUpdateMaHdv);
 		
-		JLabel lblUpdateHoTenHdv = new JLabel("Nhập họ tên:");
+		JLabel lblUpdateHoTenHdv = new JLabel("Nháº­p há»� tÃªn:");
 		lblUpdateHoTenHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateHoTenHdv.setBounds(50, 150, 200, 30);
 		cardUpdateHdv.add(lblUpdateHoTenHdv);
@@ -1262,7 +1314,7 @@ public class Application extends JFrame {
 		txtUpdateHoTenHdv.setBounds(250, 150, 300, 30);
 		cardUpdateHdv.add(txtUpdateHoTenHdv);
 		
-		JLabel lblUpdateNgaySinhHdv = new JLabel("Nhập ngày sinh:");
+		JLabel lblUpdateNgaySinhHdv = new JLabel("Nháº­p ngÃ y sinh:");
 		lblUpdateNgaySinhHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateNgaySinhHdv.setBounds(50, 200, 200, 30);
 		cardUpdateHdv.add(lblUpdateNgaySinhHdv);
@@ -1272,7 +1324,7 @@ public class Application extends JFrame {
 		txtUpdateNgaySinhHdv.setBounds(250, 200, 300, 30);
 		cardUpdateHdv.add(txtUpdateNgaySinhHdv);
 		
-		JLabel lblUpdateGioiTinh = new JLabel("Nhập giới tính:");
+		JLabel lblUpdateGioiTinh = new JLabel("Nháº­p giá»›i tÃ­nh:");
 		lblUpdateGioiTinh.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateGioiTinh.setBounds(50, 250, 200, 30);
 		cardUpdateHdv.add(lblUpdateGioiTinh);
@@ -1282,7 +1334,7 @@ public class Application extends JFrame {
 		txtUpdateGioiTinhHdv.setBounds(250, 250, 300, 30);
 		cardUpdateHdv.add(txtUpdateGioiTinhHdv);
 		
-		JLabel lblUpdateDiaChiHdv = new JLabel("Nhập địa chỉ:");
+		JLabel lblUpdateDiaChiHdv = new JLabel("Nháº­p Ä‘á»‹a chá»‰:");
 		lblUpdateDiaChiHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateDiaChiHdv.setBounds(50, 300, 200, 30);
 		cardUpdateHdv.add(lblUpdateDiaChiHdv);
@@ -1292,7 +1344,7 @@ public class Application extends JFrame {
 		txtUpdateDiaChiHdv.setBounds(250, 300, 300, 30);
 		cardUpdateHdv.add(txtUpdateDiaChiHdv);
 		
-		JLabel lblUpdateSdtHdv = new JLabel("Nhập số điện thoại:");
+		JLabel lblUpdateSdtHdv = new JLabel("Nháº­p sá»‘ Ä‘iá»‡n thoáº¡i:");
 		lblUpdateSdtHdv.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateSdtHdv.setBounds(50, 350, 200, 30);
 		cardUpdateHdv.add(lblUpdateSdtHdv);
@@ -1302,7 +1354,7 @@ public class Application extends JFrame {
 		txtUpdateSdtHdv.setBounds(250, 350, 300, 30);
 		cardUpdateHdv.add(txtUpdateSdtHdv);
 		
-		JButton btnUpdateHdv_CapNhat = new JButton("Cập nhật");
+		JButton btnUpdateHdv_CapNhat = new JButton("Cáº­p nháº­t");
 		btnUpdateHdv_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HuongDanVienDTO dto = new HuongDanVienDTO();
@@ -1331,7 +1383,7 @@ public class Application extends JFrame {
 		btnUpdateHdv_CapNhat.setBounds(150, 400, 120, 30);
 		cardUpdateHdv.add(btnUpdateHdv_CapNhat);
 		
-		JButton btnUpdateHdv_QuayLai = new JButton("Quay lại");
+		JButton btnUpdateHdv_QuayLai = new JButton("Quay láº¡i");
 		btnUpdateHdv_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyHuongDanVien");
@@ -1348,12 +1400,12 @@ public class Application extends JFrame {
 		cardQuanLyKhachHang.setLayout(null);
 		cardLayout.addLayoutComponent(cardQuanLyKhachHang, "cardQuanLyKhachHang");
 		
-		JLabel lblKhachHang_TieuDe = new JLabel("Trang quản lý khách hàng");
+		JLabel lblKhachHang_TieuDe = new JLabel("Trang quáº£n lÃ½ khÃ¡ch hÃ ng");
 		lblKhachHang_TieuDe.setBounds(0, 0, 500, 100);
 		lblKhachHang_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardQuanLyKhachHang.add(lblKhachHang_TieuDe);
 		
-		JLabel lblKhachHang_TimKiem = new JLabel("Tìm kiếm:");
+		JLabel lblKhachHang_TimKiem = new JLabel("TÃ¬m kiáº¿m:");
 		lblKhachHang_TimKiem.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblKhachHang_TimKiem.setBounds(20, 400, 80, 30);
 		cardQuanLyKhachHang.add(lblKhachHang_TimKiem);
@@ -1363,7 +1415,7 @@ public class Application extends JFrame {
 		txtKhachHang_TimKiem.setColumns(10);
 		cardQuanLyKhachHang.add(txtKhachHang_TimKiem);
 		
-		JButton btnKhachHang_TimKiem = new JButton("Tìm\r\n");
+		JButton btnKhachHang_TimKiem = new JButton("TÃ¬m\r\n");
 		btnKhachHang_TimKiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<KhachHangDTO> listKQ = khachHangBUS.getByTenKH(txtTourSearch.getText());
@@ -1398,7 +1450,7 @@ public class Application extends JFrame {
 		});
 		tblKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblKhachHang.setRowHeight(50);
-		String[] colNamesTblKhachHang = {"Mã khách hàng", "Họ tên khách hàng", "Địa chỉ", "Số điện thoại", "Mã đoàn"};
+		String[] colNamesTblKhachHang = {"MÃ£ khÃ¡ch hÃ ng", "Há»� tÃªn khÃ¡ch hÃ ng", "Ä�á»‹a chá»‰", "Sá»‘ Ä‘iá»‡n thoáº¡i", "MÃ£ Ä‘oÃ n"};
 		khachHangTblModel = new DefaultTableModel();
 		tblKhachHang.setModel(khachHangTblModel);
 		for(String colName : colNamesTblKhachHang) {
@@ -1409,7 +1461,7 @@ public class Application extends JFrame {
 		khachHangScrollPane.setViewportView(tblKhachHang);
 		tblKhachHang.setFillsViewportHeight(true);
 		
-		JButton btnKhachHang_TaiLai = new JButton("Tải lại bảng");
+		JButton btnKhachHang_TaiLai = new JButton("Táº£i láº¡i báº£ng");
 		btnKhachHang_TaiLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				khachHangTblModel.setRowCount(0);
@@ -1420,7 +1472,7 @@ public class Application extends JFrame {
 		btnKhachHang_TaiLai.setBounds(820, 450, 200, 30);
 		cardQuanLyKhachHang.add(btnKhachHang_TaiLai);
 		
-		JButton btnKhachHang_Xoa = new JButton("Xóa khách hàng");
+		JButton btnKhachHang_Xoa = new JButton("XÃ³a khÃ¡ch hÃ ng");
 		btnKhachHang_Xoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblKhachHang.getSelectedRow();
@@ -1434,7 +1486,7 @@ public class Application extends JFrame {
 		btnKhachHang_Xoa.setBounds(820, 500, 200, 30);;
 		cardQuanLyKhachHang.add(btnKhachHang_Xoa);
 		
-		JButton btnKhachHang_ThemMoi = new JButton("Thêm khách hàng");
+		JButton btnKhachHang_ThemMoi = new JButton("ThÃªm khÃ¡ch hÃ ng");
 		btnKhachHang_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardAddKhachHang");
@@ -1444,7 +1496,7 @@ public class Application extends JFrame {
 		btnKhachHang_ThemMoi.setBounds(820, 550, 200, 30);
 		cardQuanLyKhachHang.add(btnKhachHang_ThemMoi);
 		
-		btnKhachHang_CapNhat = new JButton("Cập nhật khách hàng");
+		btnKhachHang_CapNhat = new JButton("Cáº­p nháº­t khÃ¡ch hÃ ng");
 		addActionListenerBtnKhachHang_Update();
 		btnKhachHang_CapNhat.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnKhachHang_CapNhat.setBounds(820, 600, 200, 30);
@@ -1457,12 +1509,12 @@ public class Application extends JFrame {
 		cardAddKhachHang.setLayout(null);
 		cardLayout.addLayoutComponent(cardAddKhachHang, "cardAddKhachHang");
 		
-		JLabel lblAddKhachHang_TieuDe = new JLabel("Trang thêm khách hàng");
+		JLabel lblAddKhachHang_TieuDe = new JLabel("Trang thÃªm khÃ¡ch hÃ ng");
 		lblAddKhachHang_TieuDe.setBounds(0, 0, 500, 100);
 		lblAddKhachHang_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardAddKhachHang.add(lblAddKhachHang_TieuDe);
 		
-		JLabel lblAddMaKhachHang = new JLabel("Nhập mã KH:");
+		JLabel lblAddMaKhachHang = new JLabel("Nháº­p mÃ£ KH:");
 		lblAddMaKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMaKhachHang.setBounds(50, 100, 200, 30);
 		cardAddKhachHang.add(lblAddMaKhachHang);
@@ -1472,7 +1524,7 @@ public class Application extends JFrame {
 		txtAddMaKhachHang.setBounds(250, 100, 300, 30);
 		cardAddKhachHang.add(txtAddMaKhachHang);
 		
-		JLabel lblAddHoTenKhachHang = new JLabel("Nhập họ tên KH:");
+		JLabel lblAddHoTenKhachHang = new JLabel("Nháº­p há»� tÃªn KH:");
 		lblAddHoTenKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddHoTenKhachHang.setBounds(50, 150, 200, 30);
 		cardAddKhachHang.add(lblAddHoTenKhachHang);
@@ -1482,7 +1534,7 @@ public class Application extends JFrame {
 		txtAddHoTenKhachHang.setBounds(250, 150, 300, 30);
 		cardAddKhachHang.add(txtAddHoTenKhachHang);
 		
-		JLabel lblAddDiaChiKhachHang = new JLabel("Nhập địa chỉ KH:");
+		JLabel lblAddDiaChiKhachHang = new JLabel("Nháº­p Ä‘á»‹a chá»‰ KH:");
 		lblAddDiaChiKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddDiaChiKhachHang.setBounds(50, 200, 200, 30);
 		cardAddKhachHang.add(lblAddDiaChiKhachHang);
@@ -1492,7 +1544,7 @@ public class Application extends JFrame {
 		txtAddDiaChiKhachHang.setBounds(250, 200, 300, 30);
 		cardAddKhachHang.add(txtAddDiaChiKhachHang);
 		
-		JLabel lblAddSdtKhachHang = new JLabel("Nhập số điện thoại:");
+		JLabel lblAddSdtKhachHang = new JLabel("Nháº­p sá»‘ Ä‘iá»‡n thoáº¡i:");
 		lblAddSdtKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddSdtKhachHang.setBounds(50, 250, 200, 30);
 		cardAddKhachHang.add(lblAddSdtKhachHang);
@@ -1502,7 +1554,7 @@ public class Application extends JFrame {
 		txtAddSdtKhachHang.setBounds(250, 250, 300, 30);
 		cardAddKhachHang.add(txtAddSdtKhachHang);
 		
-		JLabel lblAddMaDoanKhachHang = new JLabel("Chọn đoàn:");
+		JLabel lblAddMaDoanKhachHang = new JLabel("Chá»�n Ä‘oÃ n:");
 		lblAddMaDoanKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMaDoanKhachHang.setBounds(50, 300, 200, 30);
 		cardAddKhachHang.add(lblAddMaDoanKhachHang);
@@ -1517,7 +1569,7 @@ public class Application extends JFrame {
 		cbAddMaDoanKhachHang.setBounds(250, 300, 150, 30);
 		cardAddKhachHang.add(cbAddMaDoanKhachHang);
 		
-		JButton btnAddKhachHang_ThemMoi = new JButton("Thêm mới");
+		JButton btnAddKhachHang_ThemMoi = new JButton("ThÃªm má»›i");
 		btnAddKhachHang_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhachHangDTO dto = new KhachHangDTO();
@@ -1544,7 +1596,7 @@ public class Application extends JFrame {
 		btnAddKhachHang_ThemMoi.setBounds(150, 400, 120, 30);
 		cardAddKhachHang.add(btnAddKhachHang_ThemMoi);
 		
-		JButton btnAddKhachHang_QuayLai = new JButton("Quay lại");
+		JButton btnAddKhachHang_QuayLai = new JButton("Quay láº¡i");
 		btnAddKhachHang_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyKhachHang");
@@ -1561,12 +1613,12 @@ public class Application extends JFrame {
 		cardUpdateKhachHang.setLayout(null);
 		cardLayout.addLayoutComponent(cardUpdateKhachHang, "cardUpdateKhachHang");
 		
-		JLabel lblUpdateKhachHangContent = new JLabel("Trang cập nhật khách hàng");
+		JLabel lblUpdateKhachHangContent = new JLabel("Trang cáº­p nháº­t khÃ¡ch hÃ ng");
 		lblUpdateKhachHangContent.setBounds(0, 0, 400, 100);
 		lblUpdateKhachHangContent.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardUpdateKhachHang.add(lblUpdateKhachHangContent);
 		
-		JLabel lblUpdateMaKhachHang = new JLabel("Nhập mã KH:");
+		JLabel lblUpdateMaKhachHang = new JLabel("Nháº­p mÃ£ KH:");
 		lblUpdateMaKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMaKhachHang.setBounds(50, 100, 150, 30);
 		cardUpdateKhachHang.add(lblUpdateMaKhachHang);
@@ -1576,7 +1628,7 @@ public class Application extends JFrame {
 		txtUpdateMaKhachHang.setBounds(200, 100, 300, 30);
 		cardUpdateKhachHang.add(txtUpdateMaKhachHang);
 		
-		JLabel lblUpdateHoTenKhachHang = new JLabel("Nhập họ tên KH:");
+		JLabel lblUpdateHoTenKhachHang = new JLabel("Nháº­p há»� tÃªn KH:");
 		lblUpdateHoTenKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateHoTenKhachHang.setBounds(50, 150, 150, 30);
 		cardUpdateKhachHang.add(lblUpdateHoTenKhachHang);
@@ -1586,7 +1638,7 @@ public class Application extends JFrame {
 		txtUpdateHoTenKhachHang.setBounds(200, 150, 300, 30);
 		cardUpdateKhachHang.add(txtUpdateHoTenKhachHang);
 		
-		JLabel lblUpdateDiaChiKhachHang = new JLabel("Nhập địa chỉ KH:");
+		JLabel lblUpdateDiaChiKhachHang = new JLabel("Nháº­p Ä‘á»‹a chá»‰ KH:");
 		lblUpdateDiaChiKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateDiaChiKhachHang.setBounds(50, 200, 150, 30);
 		cardUpdateKhachHang.add(lblUpdateDiaChiKhachHang);
@@ -1596,7 +1648,7 @@ public class Application extends JFrame {
 		txtUpdateDiaChiKhachHang.setBounds(200, 200, 300, 30);
 		cardUpdateKhachHang.add(txtUpdateDiaChiKhachHang);
 		
-		JLabel lblUpdateSdtKhachHang = new JLabel("Nhập số điện thoại KH:");
+		JLabel lblUpdateSdtKhachHang = new JLabel("Nháº­p sá»‘ Ä‘iá»‡n thoáº¡i KH:");
 		lblUpdateSdtKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateSdtKhachHang.setBounds(50, 250, 150, 30);
 		cardUpdateKhachHang.add(lblUpdateSdtKhachHang);
@@ -1606,7 +1658,7 @@ public class Application extends JFrame {
 		txtUpdateSdtKhachHang.setBounds(200, 250, 300, 30);
 		cardUpdateKhachHang.add(txtUpdateSdtKhachHang);
 		
-		JLabel lblUpdateMaDoanKhachHang = new JLabel("Nhập mã đoàn KH:");
+		JLabel lblUpdateMaDoanKhachHang = new JLabel("Nháº­p mÃ£ Ä‘oÃ n KH:");
 		lblUpdateMaDoanKhachHang.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMaDoanKhachHang.setBounds(50, 300, 150, 30);
 		cardUpdateKhachHang.add(lblUpdateMaDoanKhachHang);
@@ -1616,7 +1668,7 @@ public class Application extends JFrame {
 		txtUpdateMaDoanKhachHang.setBounds(200, 300, 300, 30);
 		cardUpdateKhachHang.add(txtUpdateMaDoanKhachHang);
 		
-		JButton btnUpdateKhachHang_CapNhat = new JButton("Cập nhật");
+		JButton btnUpdateKhachHang_CapNhat = new JButton("Cáº­p nháº­t");
 		btnUpdateKhachHang_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				KhachHangDTO dto = new KhachHangDTO();
@@ -1643,7 +1695,7 @@ public class Application extends JFrame {
 		btnUpdateKhachHang_CapNhat.setBounds(150, 400, 120, 30);
 		cardUpdateKhachHang.add(btnUpdateKhachHang_CapNhat);
 		
-		JButton btnUpdateKhachHang_QuayLai = new JButton("Quay lại");
+		JButton btnUpdateKhachHang_QuayLai = new JButton("Quay láº¡i");
 		btnUpdateKhachHang_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyKhachHang");
@@ -1660,12 +1712,12 @@ public class Application extends JFrame {
 		cardQuanLyHopDong.setLayout(null);
 		cardLayout.addLayoutComponent(cardQuanLyHopDong, "cardQuanLyHopDong");
 		
-		JLabel lblHopDong_TieuDe = new JLabel("Trang quản lý hợp đồng");
+		JLabel lblHopDong_TieuDe = new JLabel("Trang quáº£n lÃ½ há»£p Ä‘á»“ng");
 		lblHopDong_TieuDe.setBounds(0, 0, 500, 100);
 		lblHopDong_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardQuanLyHopDong.add(lblHopDong_TieuDe);
 		
-		JLabel lblHopDong_TimKiem = new JLabel("Tìm kiếm:");
+		JLabel lblHopDong_TimKiem = new JLabel("TÃ¬m kiáº¿m:");
 		lblHopDong_TimKiem.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblHopDong_TimKiem.setBounds(20, 400, 80, 30);
 		cardQuanLyHopDong.add(lblHopDong_TimKiem);
@@ -1675,7 +1727,7 @@ public class Application extends JFrame {
 		txtHopDong_TimKiem.setColumns(10);
 		cardQuanLyHopDong.add(txtHopDong_TimKiem);
 		
-//		JButton btnHopDong_TimKiem = new JButton("Tìm\r\n");
+//		JButton btnHopDong_TimKiem = new JButton("TÃ¬m\r\n");
 //		btnHopDong_TimKiem.setFont(new Font("Tahoma", Font.PLAIN, 16));
 //		btnHopDong_TimKiem.setBounds(310, 400, 80, 30);
 //		cardQuanLyHopDong.add(btnHopDong_TimKiem);
@@ -1687,7 +1739,7 @@ public class Application extends JFrame {
 		tblHopDong = new JTable();
 		tblHopDong.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblHopDong.setRowHeight(50);
-		String[] colNamesTblHopDong = {"Mã hợp đồng", "Ngày lập hợp đồng", "Nội dung", "Mã tour"};
+		String[] colNamesTblHopDong = {"MÃ£ há»£p Ä‘á»“ng", "NgÃ y láº­p há»£p Ä‘á»“ng", "Ná»™i dung", "MÃ£ tour"};
 		hopDongTblModel = new DefaultTableModel();
 		tblHopDong.setModel(hopDongTblModel);
 		for(String colName : colNamesTblHopDong) {
@@ -1698,7 +1750,7 @@ public class Application extends JFrame {
 		HopDongScrollPane.setViewportView(tblHopDong);
 		tblHopDong.setFillsViewportHeight(true);
 		
-		JButton btnHopDong_QuayLai = new JButton("Quay lại");
+		JButton btnHopDong_QuayLai = new JButton("Quay láº¡i");
 		btnHopDong_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -1708,7 +1760,7 @@ public class Application extends JFrame {
 		btnHopDong_QuayLai.setBounds(50, 750, 100, 30);
 		cardQuanLyHopDong.add(btnHopDong_QuayLai);
 		
-		JButton btnHopDong_TaiLai = new JButton("Tải lại bảng");
+		JButton btnHopDong_TaiLai = new JButton("Táº£i láº¡i báº£ng");
 		btnHopDong_TaiLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				hopDongTblModel.setRowCount(0);
@@ -1719,7 +1771,7 @@ public class Application extends JFrame {
 		btnHopDong_TaiLai.setBounds(820, 450, 200, 30);
 		cardQuanLyHopDong.add(btnHopDong_TaiLai);
 		
-		JButton btnHopDong_Xoa = new JButton("Xóa hợp đồng");
+		JButton btnHopDong_Xoa = new JButton("XÃ³a há»£p Ä‘á»“ng");
 		btnHopDong_Xoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblHopDong.getSelectedRow();
@@ -1734,7 +1786,7 @@ public class Application extends JFrame {
 		btnHopDong_Xoa.setBounds(820, 500, 200, 30);;
 		cardQuanLyHopDong.add(btnHopDong_Xoa);
 		
-		btnHopDong_CapNhat = new JButton("Cập nhật hợp đồng");
+		btnHopDong_CapNhat = new JButton("Cáº­p nháº­t há»£p Ä‘á»“ng");
 		addActionListenerBtnHopDong_CapNhat();
 		btnHopDong_CapNhat.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnHopDong_CapNhat.setBounds(820, 550, 200, 30);
@@ -1747,12 +1799,12 @@ public class Application extends JFrame {
 		cardAddHopDong.setLayout(null);
 		cardLayout.addLayoutComponent(cardAddHopDong, "cardAddHopDong");
 		
-		JLabel lblAddHopDong_TieuDe = new JLabel("Trang thêm hợp đồng");
+		JLabel lblAddHopDong_TieuDe = new JLabel("Trang thÃªm há»£p Ä‘á»“ng");
 		lblAddHopDong_TieuDe.setBounds(0, 0, 500, 100);
 		lblAddHopDong_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardAddHopDong.add(lblAddHopDong_TieuDe);
 		
-		JLabel lblAddMaHopDong = new JLabel("Nhập mã HD:");
+		JLabel lblAddMaHopDong = new JLabel("Nháº­p mÃ£ HD:");
 		lblAddMaHopDong.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMaHopDong.setBounds(50, 100, 200, 30);
 		cardAddHopDong.add(lblAddMaHopDong);
@@ -1762,7 +1814,7 @@ public class Application extends JFrame {
 		txtAddMaHopDong.setBounds(250, 100, 300, 30);
 		cardAddHopDong.add(txtAddMaHopDong);
 		
-		JLabel lblAddNgayLapHopDong = new JLabel("Nhập ngày lập HD:");
+		JLabel lblAddNgayLapHopDong = new JLabel("Nháº­p ngÃ y láº­p HD:");
 		lblAddNgayLapHopDong.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddNgayLapHopDong.setBounds(50, 150, 200, 30);
 		cardAddHopDong.add(lblAddNgayLapHopDong);
@@ -1772,7 +1824,7 @@ public class Application extends JFrame {
 		txtAddNgayLapHopDong.setBounds(250, 150, 300, 30);
 		cardAddHopDong.add(txtAddNgayLapHopDong);
 		
-		JLabel lblAddNoiDung = new JLabel("Nhập nội dung hợp đồng:");
+		JLabel lblAddNoiDung = new JLabel("Nháº­p ná»™i dung há»£p Ä‘á»“ng:");
 		lblAddNoiDung.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddNoiDung.setBounds(50, 200, 200, 30);
 		cardAddHopDong.add(lblAddNoiDung);
@@ -1782,7 +1834,7 @@ public class Application extends JFrame {
 		txtAddNoiDung.setBounds(250, 200, 300, 30);
 		cardAddHopDong.add(txtAddNoiDung);
 		
-		JLabel lblAddHD_MaTour = new JLabel("Nhập mã tour:");
+		JLabel lblAddHD_MaTour = new JLabel("Nháº­p mÃ£ tour:");
 		lblAddHD_MaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddHD_MaTour.setBounds(50, 250, 200, 30);
 		cardAddHopDong.add(lblAddHD_MaTour);
@@ -1792,7 +1844,7 @@ public class Application extends JFrame {
 		txtAddHD_MaTour.setBounds(250, 250, 300, 30);
 		cardAddHopDong.add(txtAddHD_MaTour);
 		
-		JButton btnAddHopDong_ThemMoi = new JButton("Thêm mới");
+		JButton btnAddHopDong_ThemMoi = new JButton("ThÃªm má»›i");
 		btnAddHopDong_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HopDongDTO dto = new HopDongDTO();
@@ -1816,7 +1868,7 @@ public class Application extends JFrame {
 		btnAddHopDong_ThemMoi.setBounds(150, 300, 120, 30);
 		cardAddHopDong.add(btnAddHopDong_ThemMoi);
 		
-		JButton btnAddHopDong_QuayLai = new JButton("Quay lại");
+		JButton btnAddHopDong_QuayLai = new JButton("Quay láº¡i");
 		btnAddHopDong_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -1833,12 +1885,12 @@ public class Application extends JFrame {
 		cardUpdateHopDong.setLayout(null);
 		cardLayout.addLayoutComponent(cardUpdateHopDong, "cardUpdateHopDong");
 		
-		JLabel lblUpdateHopDong_TieuDe = new JLabel("Trang cập nhật hợp đồng");
+		JLabel lblUpdateHopDong_TieuDe = new JLabel("Trang cáº­p nháº­t há»£p Ä‘á»“ng");
 		lblUpdateHopDong_TieuDe.setBounds(0, 0, 400, 100);
 		lblUpdateHopDong_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardUpdateHopDong.add(lblUpdateHopDong_TieuDe);
 		
-		JLabel lblUpdateMaHD = new JLabel("Nhập mã HD:");
+		JLabel lblUpdateMaHD = new JLabel("Nháº­p mÃ£ HD:");
 		lblUpdateMaHD.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMaHD.setBounds(50, 100, 150, 30);
 		cardUpdateHopDong.add(lblUpdateMaHD);
@@ -1848,7 +1900,7 @@ public class Application extends JFrame {
 		txtUpdateMaHD.setBounds(200, 100, 300, 30);
 		cardUpdateHopDong.add(txtUpdateMaHD);
 		
-		JLabel lblUpdateNgayLapHD = new JLabel("Nhập ngày lập HD:");
+		JLabel lblUpdateNgayLapHD = new JLabel("Nháº­p ngÃ y láº­p HD:");
 		lblUpdateNgayLapHD.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateNgayLapHD.setBounds(50, 150, 150, 30);
 		cardUpdateHopDong.add(lblUpdateNgayLapHD);
@@ -1858,7 +1910,7 @@ public class Application extends JFrame {
 		txtUpdateNgayLapHD.setBounds(200, 150, 300, 30);
 		cardUpdateHopDong.add(txtUpdateNgayLapHD);
 		
-		JLabel lblUpdateNoiDung = new JLabel("Nhập nội dung:");
+		JLabel lblUpdateNoiDung = new JLabel("Nháº­p ná»™i dung:");
 		lblUpdateNoiDung.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateNoiDung.setBounds(50, 200, 150, 30);
 		cardUpdateHopDong.add(lblUpdateNoiDung);
@@ -1868,7 +1920,7 @@ public class Application extends JFrame {
 		txtUpdateNoiDungHD.setBounds(200, 200, 300, 30);
 		cardUpdateHopDong.add(txtUpdateNoiDungHD);
 		
-		JLabel lblUpdateHD_MaTour = new JLabel("Nhập mã tour:");
+		JLabel lblUpdateHD_MaTour = new JLabel("Nháº­p mÃ£ tour:");
 		lblUpdateHD_MaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateHD_MaTour.setBounds(50, 250, 150, 30);
 		cardUpdateHopDong.add(lblUpdateHD_MaTour);
@@ -1878,7 +1930,7 @@ public class Application extends JFrame {
 		txtUpdateHD_MaTour.setBounds(200, 250, 300, 30);
 		cardUpdateHopDong.add(txtUpdateHD_MaTour);
 		
-		JButton btnUpdateHopDong_CapNhat = new JButton("Cập nhật");
+		JButton btnUpdateHopDong_CapNhat = new JButton("Cáº­p nháº­t");
 		btnUpdateHopDong_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HopDongDTO dto = new HopDongDTO();
@@ -1904,7 +1956,7 @@ public class Application extends JFrame {
 		btnUpdateHopDong_CapNhat.setBounds(150, 300, 120, 30);
 		cardUpdateHopDong.add(btnUpdateHopDong_CapNhat);
 		
-		JButton btnUpdateHopDong_QuayLai = new JButton("Quay lại");
+		JButton btnUpdateHopDong_QuayLai = new JButton("Quay láº¡i");
 		btnUpdateHopDong_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyHopDong");
@@ -1921,12 +1973,12 @@ public class Application extends JFrame {
 		cardQuanLyDoan.setLayout(null);
 		cardLayout.addLayoutComponent(cardQuanLyDoan, "cardQuanLyDoan");
 		
-		JLabel lblDoan_TieuDe = new JLabel("Trang quản lý đoàn");
+		JLabel lblDoan_TieuDe = new JLabel("Trang quáº£n lÃ½ Ä‘oÃ n");
 		lblDoan_TieuDe.setBounds(0, 0, 500, 100);
 		lblDoan_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardQuanLyDoan.add(lblDoan_TieuDe);
 		
-		JLabel lblDoan_TimKiem = new JLabel("Tìm kiếm:");
+		JLabel lblDoan_TimKiem = new JLabel("TÃ¬m kiáº¿m:");
 		lblDoan_TimKiem.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblDoan_TimKiem.setBounds(20, 400, 80, 30);
 		cardQuanLyDoan.add(lblDoan_TimKiem);
@@ -1936,7 +1988,7 @@ public class Application extends JFrame {
 		txtDoan_TimKiem.setColumns(10);
 		cardQuanLyDoan.add(txtDoan_TimKiem);
 		
-//		JButton btnDoan_TimKiem = new JButton("Tìm\r\n");
+//		JButton btnDoan_TimKiem = new JButton("TÃ¬m\r\n");
 //		btnDoan_TimKiem.setFont(new Font("Tahoma", Font.PLAIN, 16));
 //		btnDoan_TimKiem.setBounds(310, 400, 80, 30);
 //		cardQuanLyDoan.add(btnDoan_TimKiem);
@@ -1948,7 +2000,7 @@ public class Application extends JFrame {
 		tblDoan = new JTable();
 		tblDoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblDoan.setRowHeight(50);
-		String[] colNamesTblDoan = {"Mã đoàn", "Số người", "Mã tour", "Mã HDV"};
+		String[] colNamesTblDoan = {"MÃ£ Ä‘oÃ n", "Sá»‘ ngÆ°á»�i", "MÃ£ tour", "MÃ£ HDV"};
 		doanTblModel = new DefaultTableModel();
 		tblDoan.setModel(doanTblModel);
 		for(String colName : colNamesTblDoan) {
@@ -1959,7 +2011,7 @@ public class Application extends JFrame {
 		DoanScrollPane.setViewportView(tblDoan);
 		tblDoan.setFillsViewportHeight(true);
 		
-		JButton btnDoan_QuayLai = new JButton("Quay lại");
+		JButton btnDoan_QuayLai = new JButton("Quay láº¡i");
 		btnDoan_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -1969,7 +2021,7 @@ public class Application extends JFrame {
 		btnDoan_QuayLai.setBounds(50, 750, 100, 30);
 		cardQuanLyDoan.add(btnDoan_QuayLai);
 		
-		JButton btnDoan_TaiLai = new JButton("Tải lại bảng");
+		JButton btnDoan_TaiLai = new JButton("Táº£i láº¡i báº£ng");
 		btnDoan_TaiLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				doanTblModel.setRowCount(0);
@@ -1980,7 +2032,7 @@ public class Application extends JFrame {
 		btnDoan_TaiLai.setBounds(820, 450, 200, 30);
 		cardQuanLyDoan.add(btnDoan_TaiLai);
 		
-		JButton btnDoan_Xoa = new JButton("Xóa đoàn");
+		JButton btnDoan_Xoa = new JButton("XÃ³a Ä‘oÃ n");
 		btnDoan_Xoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblDoan.getSelectedRow();
@@ -1995,7 +2047,7 @@ public class Application extends JFrame {
 		btnDoan_Xoa.setBounds(820, 500, 200, 30);;
 		cardQuanLyDoan.add(btnDoan_Xoa);
 		
-		btnDoan_CapNhat = new JButton("Cập nhật đoàn");
+		btnDoan_CapNhat = new JButton("Cáº­p nháº­t Ä‘oÃ n");
 		addActionListenerBtnDoan_CapNhat();
 		btnDoan_CapNhat.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnDoan_CapNhat.setBounds(820, 550, 200, 30);
@@ -2008,12 +2060,12 @@ public class Application extends JFrame {
 		cardAddDoan.setLayout(null);
 		cardLayout.addLayoutComponent(cardAddDoan, "cardAddDoan");
 		
-		JLabel lblAddDoan_TieuDe = new JLabel("Trang thêm hợp đồng");
+		JLabel lblAddDoan_TieuDe = new JLabel("Trang thÃªm há»£p Ä‘á»“ng");
 		lblAddDoan_TieuDe.setBounds(0, 0, 500, 100);
 		lblAddDoan_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardAddDoan.add(lblAddDoan_TieuDe);
 		
-		JLabel lblAddMaDoan = new JLabel("Nhập mã đoàn:");
+		JLabel lblAddMaDoan = new JLabel("Nháº­p mÃ£ Ä‘oÃ n:");
 		lblAddMaDoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddMaDoan.setBounds(50, 100, 200, 30);
 		cardAddDoan.add(lblAddMaDoan);
@@ -2023,7 +2075,7 @@ public class Application extends JFrame {
 		txtAddMaDoan.setBounds(250, 100, 300, 30);
 		cardAddDoan.add(txtAddMaDoan);
 		
-		JLabel lblAddSoNguoi = new JLabel("Nhập số người:");
+		JLabel lblAddSoNguoi = new JLabel("Nháº­p sá»‘ ngÆ°á»�i:");
 		lblAddSoNguoi.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddSoNguoi.setBounds(50, 150, 200, 30);
 		cardAddDoan.add(lblAddSoNguoi);
@@ -2033,7 +2085,7 @@ public class Application extends JFrame {
 		txtAddSoNguoi.setBounds(250, 150, 300, 30);
 		cardAddDoan.add(txtAddSoNguoi);
 		
-		JLabel lblAddDoan_MaTour = new JLabel("Nhập mã tour:");
+		JLabel lblAddDoan_MaTour = new JLabel("Nháº­p mÃ£ tour:");
 		lblAddDoan_MaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddDoan_MaTour.setBounds(50, 200, 200, 30);
 		cardAddDoan.add(lblAddDoan_MaTour);
@@ -2043,7 +2095,7 @@ public class Application extends JFrame {
 		txtAddDoan_MaTour.setBounds(250, 200, 300, 30);
 		cardAddDoan.add(txtAddDoan_MaTour);
 		
-		JButton btnAddDoan_ThemMoi = new JButton("Thêm mới");
+		JButton btnAddDoan_ThemMoi = new JButton("ThÃªm má»›i");
 		btnAddDoan_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DoanDTO dto = new DoanDTO();
@@ -2066,7 +2118,7 @@ public class Application extends JFrame {
 		btnAddDoan_ThemMoi.setBounds(150, 250, 120, 30);
 		cardAddDoan.add(btnAddDoan_ThemMoi);
 		
-		JButton btnAddDoan_QuayLai = new JButton("Quay lại");
+		JButton btnAddDoan_QuayLai = new JButton("Quay láº¡i");
 		btnAddDoan_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -2083,12 +2135,12 @@ public class Application extends JFrame {
 		cardUpdateDoan.setLayout(null);
 		cardLayout.addLayoutComponent(cardUpdateDoan, "cardUpdateDoan");
 		
-		JLabel lblUpdateDoan_TieuDe = new JLabel("Trang cập nhật đoàn");
+		JLabel lblUpdateDoan_TieuDe = new JLabel("Trang cáº­p nháº­t Ä‘oÃ n");
 		lblUpdateDoan_TieuDe.setBounds(0, 0, 400, 100);
 		lblUpdateDoan_TieuDe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		cardUpdateDoan.add(lblUpdateDoan_TieuDe);
 		
-		JLabel lblUpdateMaDoan = new JLabel("Nhập mã đoàn:");
+		JLabel lblUpdateMaDoan = new JLabel("Nháº­p mÃ£ Ä‘oÃ n:");
 		lblUpdateMaDoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateMaDoan.setBounds(50, 100, 150, 30);
 		cardUpdateDoan.add(lblUpdateMaDoan);
@@ -2098,7 +2150,7 @@ public class Application extends JFrame {
 		txtUpdateMaDoan.setBounds(200, 100, 300, 30);
 		cardUpdateDoan.add(txtUpdateMaDoan);
 		
-		JLabel lblUpdateSoNguoi = new JLabel("Nhập số người :");
+		JLabel lblUpdateSoNguoi = new JLabel("Nháº­p sá»‘ ngÆ°á»�i :");
 		lblUpdateSoNguoi.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateSoNguoi.setBounds(50, 150, 150, 30);
 		cardUpdateDoan.add(lblUpdateSoNguoi);
@@ -2108,7 +2160,7 @@ public class Application extends JFrame {
 		txtUpdateSoNguoi.setBounds(200, 150, 300, 30);
 		cardUpdateDoan.add(txtUpdateSoNguoi);
 		
-		JLabel lblUpdateDoan_MaTour = new JLabel("Nhập mã tour:");
+		JLabel lblUpdateDoan_MaTour = new JLabel("Nháº­p mÃ£ tour:");
 		lblUpdateDoan_MaTour.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUpdateDoan_MaTour.setBounds(50, 200, 150, 30);
 		cardUpdateDoan.add(lblUpdateDoan_MaTour);
@@ -2118,7 +2170,7 @@ public class Application extends JFrame {
 		txtUpdateDoan_MaTour.setBounds(200, 200, 300, 30);
 		cardUpdateDoan.add(txtUpdateDoan_MaTour);
 		
-		JButton btnUpdateDoan_CapNhat = new JButton("Cập nhật");
+		JButton btnUpdateDoan_CapNhat = new JButton("Cáº­p nháº­t");
 		btnUpdateDoan_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DoanDTO dto = new DoanDTO();
@@ -2142,7 +2194,7 @@ public class Application extends JFrame {
 		btnUpdateDoan_CapNhat.setBounds(150, 250, 120, 30);
 		cardUpdateDoan.add(btnUpdateDoan_CapNhat);
 		
-		JButton btnUpdateDoan_QuayLai = new JButton("Quay lại");
+		JButton btnUpdateDoan_QuayLai = new JButton("Quay láº¡i");
 		btnUpdateDoan_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyDoan");
@@ -2158,10 +2210,10 @@ public class Application extends JFrame {
 		for(TaiKhoanDTO taiKhoan : TaiKhoanBUS.listTaiKhoanDTO) {
 			String tenQuyen = null;
 			if(taiKhoan.getQuyen() == 0) {
-				tenQuyen = "Quản trị viên";
+				tenQuyen = "Quáº£n trá»‹ viÃªn";
 			}
 			else if(taiKhoan.getQuyen() == 1) {
-				tenQuyen = "Nhân viên";
+				tenQuyen = "NhÃ¢n viÃªn";
 			}
 			taiKhoanTblModel.addRow(new Object[] {
 					taiKhoan.getTenTK(), taiKhoan.getMatKhau(), tenQuyen
@@ -2231,10 +2283,10 @@ public class Application extends JFrame {
 		Vector<String> rowData = new Vector<String>();
 		String tenQuyen = null;
 		if(dto.getQuyen() == 0) {
-			tenQuyen = "Quản trị viên";
+			tenQuyen = "Quáº£n trá»‹ viÃªn";
 		}
 		else if(dto.getQuyen() == 1) {
-			tenQuyen = "Nhân viên";
+			tenQuyen = "NhÃ¢n viÃªn";
 		}
 		
 		rowData.add(dto.getTenTK());
@@ -2337,10 +2389,10 @@ public class Application extends JFrame {
 	public void setRow(TaiKhoanDTO dto, int selectedRow) {
 		String tenQuyen = null;
 		if(dto.getQuyen() == 0) {
-			tenQuyen = "Quản trị viên";
+			tenQuyen = "Quáº£n trá»‹ viÃªn";
 		}
 		else if(dto.getQuyen() == 1) {
-			tenQuyen = "Nhân viên";
+			tenQuyen = "NhÃ¢n viÃªn";
 		}
 		taiKhoanTblModel.setValueAt(dto.getTenTK(), selectedRow, 0);
 		taiKhoanTblModel.setValueAt(dto.getMatKhau(), selectedRow, 1);
@@ -2399,10 +2451,10 @@ public class Application extends JFrame {
 				String quyen = (String) tblTaiKhoan.getValueAt(selectedRow, 2);
 				txtUpdateTenTaiKhoan.setText((String) tblTaiKhoan.getValueAt(selectedRow, 0));
 				txtUpdateMatKhau.setText((String) tblTaiKhoan.getValueAt(selectedRow, 1));
-				if(quyen.equals("Quản trị viên")) {
+				if(quyen.equals("Quáº£n trá»‹ viÃªn")) {
 					rBtnUpdateQuanTriVien.setSelected(true);
 				}	
-				else if(quyen.equals("Nhân viên")) {
+				else if(quyen.equals("NhÃ¢n viÃªn")) {
 					rBtnUpdateNhanVien.setSelected(true);
 				}
 			}

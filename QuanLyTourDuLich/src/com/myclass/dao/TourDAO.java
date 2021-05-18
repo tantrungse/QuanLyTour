@@ -10,7 +10,7 @@ import com.myclass.connector.JDBCConnection;
 import com.myclass.dto.TourDTO;
 
 public class TourDAO {
-	private final static String tableName = "Tour";
+	private final static String tableName = "tour";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
@@ -19,10 +19,61 @@ public class TourDAO {
 		
 	}
 	
-	public TourDTO getById(String maTour) {
-		
-		return null;
-	}
+	public ArrayList<TourDTO> getByTenTour(String TenTour) {
+    	ArrayList<TourDTO> dtos = new ArrayList<TourDTO>();
+    	String query = "SELECT * FROM tour WHERE TenTour LIKE ?"; 
+    	try {
+    		conn = JDBCConnection.getJDBCConnection(tableName);
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setString(1, "%" + TenTour + "%");
+    		rs = pstmt.executeQuery();
+    		
+    		while(rs.next()) {
+    			TourDTO dto = new TourDTO();
+    			
+    			dto.setMaTour(rs.getString(1));
+    			dto.setTenTour(rs.getString(2));
+    			dto.setGiaVe(rs.getDouble(3));
+    			dto.setDiemKhoiHanh(rs.getString(4));
+    			dto.setDiemDen(rs.getString(5));
+    			dtos.add(dto);
+    		}
+    		
+    		return dtos;
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return null;
+    }
+	
+	public ArrayList<TourDTO> getByMaTour(String MaTour) {
+    	ArrayList<TourDTO> dtos = new ArrayList<TourDTO>();
+    	String query = "SELECT * FROM tour WHERE MaTour = ?"; 
+    	try {
+    		conn = JDBCConnection.getJDBCConnection(tableName);
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setString(1, MaTour);
+    		rs = pstmt.executeQuery();
+    		
+    		while(rs.next()) {
+    			TourDTO dto = new TourDTO();
+    			
+    			dto.setMaTour(rs.getString(1));
+    			dto.setTenTour(rs.getString(2));
+    			dto.setGiaVe(rs.getDouble(3));
+    			dto.setDiemKhoiHanh(rs.getString(4));
+    			dto.setDiemDen(rs.getString(5));
+    			dtos.add(dto);
+    		}
+    		
+    		return dtos;
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return null;
+    }
 	
 	public ArrayList<TourDTO> getAll() {
 		ArrayList<TourDTO> dtos;
