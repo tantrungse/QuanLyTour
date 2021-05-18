@@ -12,7 +12,7 @@ import com.myclass.dto.DoanDTO;
 import com.myclass.dto.TourDTO;
 
 public class DoanDAO {
-	private final static String tableName = "Doan";
+	private final static String tableName = "doan";
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
@@ -31,6 +31,7 @@ public class DoanDAO {
 				dto.setMaDoan(rs.getString("MaDoan"));
 				dto.setSoNguoi(rs.getInt("SoNguoi"));
 				dto.setMaTour(rs.getString("MaTour"));
+				dto.setMaHDV(rs.getString("MaHDV"));
 				
 				dtos.add(dto);
 			}
@@ -64,6 +65,7 @@ public class DoanDAO {
     			dto.setMaDoan(rs.getString("MaDoan"));
     			dto.setSoNguoi(rs.getInt("SoNguoi"));
     			dto.setMaTour(rs.getString("MaTour"));
+			dto.setMaHDV(rs.getString("MaHDV"));
     		}
     		
     		return dto;
@@ -89,6 +91,33 @@ public class DoanDAO {
     			dto.setMaDoan(rs.getString("MaDoan"));
     			dto.setSoNguoi(rs.getInt("SoNguoi"));
     			dto.setMaTour(rs.getString("MaTour"));
+			dto.setMaHDV(rs.getString("MaHDV"));
+    		}
+    		
+    		return dto;
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+		
+		return null;
+	}
+
+	public DoanDTO getByMaHDV(String maHDV) {
+    	String query = "SELECT * FROM " + tableName + " WHERE MaHDV = ?"; 
+    	try {
+    		DoanDTO dto = null;
+    		conn = JDBCConnection.getJDBCConnection(tableName);
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setString(1, maHDV);
+    		rs = pstmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			dto = new DoanDTO();
+
+    			dto.setMaDoan(rs.getString("MaDoan"));
+    			dto.setSoNguoi(rs.getInt("SoNguoi"));
+    			dto.setMaTour(rs.getString("MaTour"));
+    			dto.setMaHDV(rs.getString("MaHDV"));
     		}
     		
     		return dto;
@@ -146,14 +175,15 @@ public class DoanDAO {
 	public void add(DoanDTO dto) {
 		try {
 			conn = JDBCConnection.getJDBCConnection(tableName);
-			String sql = "INSERT INTO "
-					+ "Doan(`MaDoan`, `SoNguoi`, `MaTour`)"
-					+ "VALUES (?, ?, ?)";
+			String sql = "INSERT INTO " + tableName
+					+ " (`MaDoan`, `SoNguoi`, `MaTour`, `MaHDV`) "
+					+ "VALUES (?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getMaDoan());
 			pstmt.setInt(2, dto.getSoNguoi());
 			pstmt.setString(3, dto.getMaTour());
+			pstmt.setString(4, dto.getMaHDV());
 			
 			int rowEffects = pstmt.executeUpdate();
 			System.out.println("Row effects: " + rowEffects);
@@ -172,12 +202,13 @@ public class DoanDAO {
 		try {
 			conn = JDBCConnection.getJDBCConnection(tableName);
 			String sql = "UPDATE Doan SET "
-					+ "SoNguoi = ?, MaTour = ?"
+					+ "SoNguoi = ?, MaTour = ?, MaHDV = ?"
 					+ "WHERE MaDoan = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getSoNguoi());
 			pstmt.setString(2, dto.getMaTour());
 			pstmt.setString(3, dto.getMaDoan());
+			pstmt.setString(4, dto.getMaHDV());
 			
 			int rowEffects = pstmt.executeUpdate();
 			System.out.println("Row effects: " + rowEffects);

@@ -749,7 +749,7 @@ public class Application extends JFrame {
 		tblTour_Doan = new JTable();
 		tblTour_Doan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblTour_Doan.setRowHeight(50);
-		String[] colNamesTblTour_Doan = {"Mã đoàn", "Số người", "Mã tour"};
+		String[] colNamesTblTour_Doan = {"Mã đoàn", "Số người", "Mã tour", "Mã HDV"};
 		tour_doanTblModel = new DefaultTableModel();
 		tblTour_Doan.setModel(tour_doanTblModel);
 		for(String colName : colNamesTblTour_Doan) {
@@ -1948,7 +1948,7 @@ public class Application extends JFrame {
 		tblDoan = new JTable();
 		tblDoan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		tblDoan.setRowHeight(50);
-		String[] colNamesTblDoan = {"Mã hợp đồng", "Số người", "Mã tour"};
+		String[] colNamesTblDoan = {"Mã đoàn", "Số người", "Mã tour", "Mã HDV"};
 		doanTblModel = new DefaultTableModel();
 		tblDoan.setModel(doanTblModel);
 		for(String colName : colNamesTblDoan) {
@@ -2204,7 +2204,7 @@ public class Application extends JFrame {
 	public void loadTblDoan() {
 		for(DoanDTO doan : DoanBUS.listDoanDTO) {
 			doanTblModel.addRow(new Object[] {
-					doan.getMaDoan(), doan.getSoNguoi(), doan.getMaTour()
+					doan.getMaDoan(), doan.getSoNguoi(), doan.getMaTour(), doan.getMaHDV()
 			});
 		}
 	}
