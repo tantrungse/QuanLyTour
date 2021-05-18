@@ -1486,13 +1486,71 @@ public class Application extends JFrame {
 		JButton btnKhachHang_TimKiem = new JButton("TÃ¬m\r\n");
 		btnKhachHang_TimKiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<KhachHangDTO> listKQ = khachHangBUS.getByTenKH(txtTourSearch.getText());
-				khachHangTblModel.setRowCount(0); // xoa tat ca row
-				for(KhachHangDTO dto : listKQ) {
-					khachHangTblModel.addRow(new Object[] {
-							dto.getMaKH(), dto.getHoTenKH(), dto.getDiaChi(), dto.getSdt(), dto.getMaDoan()
-					});
-				}
+				ArrayList<KhachHangDTO> listKQ;
+				Object[] options = {
+			            "Tìm kiếm theo mã khách hàng","Tìm kiếm theo họ khách hàng", "Tìm kiếm theo tên khách hàng", "Đóng"
+			        };
+			        int select = JOptionPane.showOptionDialog(btnTourSearch, "Bạn muốn tìm kiếm theo phương thức nào?", "Tùy chọn", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[3]);
+			        
+			        //System.out.println("select: " + select);
+			        //mÃ£ -> select: 0
+			        //tÃªn -> select: 1
+			        // chi phi -> select: 2
+			        // Ä‘Ã³ng -> select: 3
+			        
+			        if(select == 0){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập mã khách hàng !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = khachHangBUS.getByMaKH(input);
+			                khachHangTblModel.setRowCount(0);
+			                
+			                for(KhachHangDTO dto : listKQ) {
+			                	khachHangTblModel.addRow(new Object[] {
+										dto.getMaKH(), dto.getHoTenKH(), dto.getDiaChi(), dto.getSdt(), dto.getMaDoan()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
+			        
+			        if(select == 1){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập họ khách hàng !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = khachHangBUS.getByHoKH(input);
+			                khachHangTblModel.setRowCount(0);
+			                
+			                for(KhachHangDTO dto : listKQ) {
+			                	khachHangTblModel.addRow(new Object[] {
+										dto.getMaKH(), dto.getHoTenKH(), dto.getDiaChi(), dto.getSdt(), dto.getMaDoan()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
+			        
+			        if(select == 2){
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập tên khách hàng !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = khachHangBUS.getByTenKH(input);
+			                khachHangTblModel.setRowCount(0);
+			                
+			                for(KhachHangDTO dto : listKQ) {
+			                	khachHangTblModel.addRow(new Object[] {
+										dto.getMaKH(), dto.getHoTenKH(), dto.getDiaChi(), dto.getSdt(), dto.getMaDoan()
+								});
+			                };
+			            }
+			            else {
+			                JOptionPane.showMessageDialog(null, "Lỗi tìm kiếm !");
+			            }
+			        }
 			}
 		});
 		btnKhachHang_TimKiem.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -1532,8 +1590,18 @@ public class Application extends JFrame {
 		JButton btnKhachHang_TaiLai = new JButton("Táº£i láº¡i báº£ng");
 		btnKhachHang_TaiLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//khachHangTblModel.setRowCount(0);
+				//loadTblKhachHang();
+				ArrayList<KhachHangDTO> listKQ;
+				listKQ = khachHangBUS.getAll();
+		        
 				khachHangTblModel.setRowCount(0);
-				loadTblKhachHang();
+                
+                for(KhachHangDTO dto : listKQ) {
+                	khachHangTblModel.addRow(new Object[] {
+							dto.getMaKH(), dto.getHoTenKH(), dto.getDiaChi(), dto.getSdt(), dto.getMaDoan()
+					});
+                };
 			}
 		});
 		btnKhachHang_TaiLai.setFont(new Font("Tahoma", Font.PLAIN, 16));
