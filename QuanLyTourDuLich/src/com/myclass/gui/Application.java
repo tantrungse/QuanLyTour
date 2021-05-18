@@ -1863,10 +1863,33 @@ public class Application extends JFrame {
 		txtHopDong_TimKiem.setColumns(10);
 		cardQuanLyHopDong.add(txtHopDong_TimKiem);
 		
-//		JButton btnHopDong_TimKiem = new JButton("TÃ¬m\r\n");
-//		btnHopDong_TimKiem.setFont(new Font("Tahoma", Font.PLAIN, 16));
-//		btnHopDong_TimKiem.setBounds(310, 400, 80, 30);
-//		cardQuanLyHopDong.add(btnHopDong_TimKiem);
+		JButton btnHopDong_TimKiem = new JButton("TÃ¬m\r\n");
+		
+		btnHopDong_TimKiem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<HopDongDTO> listKQ;
+				
+			            String input = JOptionPane.showInputDialog(btnTourSearch, "Mời bạn nhập mã Tour !");
+			            
+			            if(input != null && input.length() > 0){
+			                listKQ = hopDongBUS.getByMaHD(input);
+			                hopDongTblModel.setRowCount(0);
+			                
+			                for(HopDongDTO dto : listKQ) {
+								hopDongTblModel.addRow(new Object[] {
+										dto.getMaHD(), dto.getNgayLapHD(), dto.getNoiDung(), dto.getMaTour()
+								});
+			                };
+			            }
+			           
+			        }
+			        
+			        
+		});
+		
+		btnHopDong_TimKiem.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnHopDong_TimKiem.setBounds(310, 400, 80, 30);
+		cardQuanLyHopDong.add(btnHopDong_TimKiem);
 		
 		JScrollPane HopDongScrollPane = new JScrollPane();
 		HopDongScrollPane.setBounds(50, 450, 750, 273);

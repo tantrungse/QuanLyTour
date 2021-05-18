@@ -13,9 +13,9 @@ public class HopDongBUS {
 	
 	public HopDongBUS() {}
 	
-	public HopDongDTO getByMaHD(String maHD) {
+	public ArrayList<HopDongDTO> getByMaHD(String MaHD) {
 		
-		return hopDongDAO.getByMaHD(maHD);
+		return hopDongDAO.getByMaHD(MaHD);
 	}
 	
 	public HopDongDTO getByMaTour(String maTour) {

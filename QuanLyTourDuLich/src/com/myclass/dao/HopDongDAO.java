@@ -18,25 +18,26 @@ public class HopDongDAO {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
-    public HopDongDTO getByMaHD(String maHD) {
+	public ArrayList<HopDongDTO> getByMaHD(String MaHD) {
+    	ArrayList<HopDongDTO> dtos = new ArrayList<HopDongDTO>();
     	String query = "SELECT * FROM " + tableName + " WHERE MaHD = ?"; 
     	try {
-    		HopDongDTO dto = null;
     		conn = JDBCConnection.getJDBCConnection(tableName);
     		pstmt = conn.prepareStatement(query);
-    		pstmt.setString(1, maHD);
+    		pstmt.setString(1, MaHD);
     		rs = pstmt.executeQuery();
     		
-    		if(rs.next()) {
-    			dto = new HopDongDTO();
-
-    			dto.setMaHD(rs.getString("MaHD"));
-    			dto.setNgayLapHD(rs.getString("NgayLapHD"));
-    			dto.setNoiDung(rs.getString("NoiDung"));
-    			dto.setMaTour(rs.getString("MaTour"));
+    		while(rs.next()) {
+    			HopDongDTO dto = new HopDongDTO();
+    			
+    			dto.setMaHD(rs.getString(1));
+    			dto.setNgayLapHD(rs.getString(2));
+    			dto.setNoiDung(rs.getString(3));
+    			dto.setMaTour(rs.getString(4));
+    			dtos.add(dto);
     		}
     		
-    		return dto;
+    		return dtos;
     	} catch(SQLException e) {
     		e.printStackTrace();
     	}
