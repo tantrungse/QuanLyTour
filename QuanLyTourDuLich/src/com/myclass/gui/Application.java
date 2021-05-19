@@ -1649,10 +1649,23 @@ public class Application extends JFrame {
 		btnKhachHang_Xoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblKhachHang.getSelectedRow();
-				String maKH = (String) tblKhachHang.getValueAt(selectedRow, 0);
+				if(selectedRow>=0) {
+					int result=JOptionPane.showConfirmDialog(null, "Bạn có chắc muốn xóa thông tin này?", "Thông báo",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					if(result==JOptionPane.YES_OPTION) {
+					String maKH = (String) tblKhachHang.getValueAt(selectedRow, 0);
+					
+					khachHangBUS.deleteById(maKH);
+					khachHangTblModel.removeRow(selectedRow);
+					}
+					else if(result==JOptionPane.NO_OPTION){
+						JOptionPane.showMessageDialog(null, "Thông tin này chưa được xóa !");
+					}
+				}
 				
-				khachHangBUS.deleteById(maKH);
-				khachHangTblModel.removeRow(selectedRow);
+				if(selectedRow<0 ) {
+					JOptionPane.showMessageDialog(cardQuanLyKhachHang, "Bạn chưa chọn trường dữ liệu nào cả");
+				}
+			
 			}
 		});
 		btnKhachHang_Xoa.setFont(new Font("Tahoma", Font.PLAIN, 16));
