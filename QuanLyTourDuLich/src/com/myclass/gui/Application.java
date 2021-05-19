@@ -2185,7 +2185,7 @@ public class Application extends JFrame {
 		btnAddHopDong_ThemMoi.setBounds(150, 300, 120, 30);
 		cardAddHopDong.add(btnAddHopDong_ThemMoi);
 		
-		JButton btnAddHopDong_QuayLai = new JButton("Quay láº¡i");
+		JButton btnAddHopDong_QuayLai = new JButton("Quay lại");
 		btnAddHopDong_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cardLayout.show(cardsPane, "cardQuanLyTour");
@@ -2422,6 +2422,16 @@ public class Application extends JFrame {
 		txtAddDoan_MaTour.setBounds(250, 200, 300, 30);
 		cardAddDoan.add(txtAddDoan_MaTour);
 		
+		JLabel lblAddDoan_MaHDV = new JLabel("Nhập mã HDV:");
+		lblAddDoan_MaHDV.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblAddDoan_MaHDV.setBounds(50, 250, 200, 30);
+		cardAddDoan.add(lblAddDoan_MaHDV);
+		
+		JTextField txtAddDoan_MaHDV = new JTextField();
+		txtAddDoan_MaHDV.setColumns(10);
+		txtAddDoan_MaHDV.setBounds(250, 250, 300, 30);
+		cardAddDoan.add(txtAddDoan_MaHDV);
+		
 		JButton btnAddDoan_ThemMoi = new JButton("Thêm mới");
 		btnAddDoan_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -2429,7 +2439,8 @@ public class Application extends JFrame {
 				
 				dto.setMaDoan(txtAddMaDoan.getText());
 				dto.setSoNguoi(Integer.valueOf(txtAddSoNguoi.getText()));
-				dto.setMaTour(txtAddHD_MaTour.getText());
+				dto.setMaTour(txtAddDoan_MaTour.getText());
+				dto.setMaHDV(txtAddDoan_MaHDV.getText());
 				
 				doanBUS.add(dto);
 				DoanBUS.listDoanDTO.add(dto);
@@ -2438,11 +2449,12 @@ public class Application extends JFrame {
 				// clear all text after add
 				txtAddMaDoan.setText("");
 				txtAddSoNguoi.setText("");
-				txtAddMaTour.setText("");
+				txtAddDoan_MaTour.setText("");
+				txtAddDoan_MaHDV.setText("");
 			}
 		});
 		btnAddDoan_ThemMoi.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnAddDoan_ThemMoi.setBounds(150, 250, 120, 30);
+		btnAddDoan_ThemMoi.setBounds(150, 300, 120, 30);
 		cardAddDoan.add(btnAddDoan_ThemMoi);
 		
 		JButton btnAddDoan_QuayLai = new JButton("Quay lại");
@@ -2452,7 +2464,7 @@ public class Application extends JFrame {
 			}
 		});
 		btnAddDoan_QuayLai.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnAddDoan_QuayLai.setBounds(300, 250, 120, 30);
+		btnAddDoan_QuayLai.setBounds(300, 300, 120, 30);
 		cardAddDoan.add(btnAddDoan_QuayLai);
 		// ===== ADD DOAN LAYOUT END HERE ======
 		
@@ -2515,6 +2527,7 @@ public class Application extends JFrame {
 				txtUpdateMaDoan.setText("");
 				txtUpdateSoNguoi.setText("");
 				txtUpdateDoan_MaTour.setText("");
+				
 			}
 		});
 		btnUpdateDoan_CapNhat.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -2602,7 +2615,7 @@ public class Application extends JFrame {
 			tour_doanTblModel.setRowCount(0);
 		}
 		tour_doanTblModel.addRow(new Object[] {
-				doan.getMaDoan(), doan.getSoNguoi(), doan.getMaTour()
+				doan.getMaDoan(), doan.getSoNguoi(), doan.getMaTour(),doan.getMaHDV()
 		});
 	}
 	
@@ -2610,10 +2623,10 @@ public class Application extends JFrame {
 		Vector<String> rowData = new Vector<String>();
 		String tenQuyen = null;
 		if(dto.getQuyen() == 0) {
-			tenQuyen = "Quáº£n trá»‹ viÃªn";
+			tenQuyen = "Quản trị viên";
 		}
 		else if(dto.getQuyen() == 1) {
-			tenQuyen = "NhÃ¢n viÃªn";
+			tenQuyen = "Nhân viên";
 		}
 		
 		rowData.add(dto.getTenTK());
@@ -2677,6 +2690,7 @@ public class Application extends JFrame {
 		rowData.add(dto.getMaDoan());
 		rowData.add(String.valueOf(dto.getSoNguoi()));
 		rowData.add(dto.getMaTour());
+		rowData.add(dto.getMaHDV());
 		
 		doanTblModel.addRow(rowData);
 	}
@@ -2698,6 +2712,7 @@ public class Application extends JFrame {
 		rowData.add(dto.getMaDoan());
 		rowData.add(String.valueOf(dto.getSoNguoi()));
 		rowData.add(dto.getMaTour());
+		rowData.add(dto.getMaHDV());
 		
 		tour_doanTblModel.addRow(rowData);
 	}
@@ -2762,6 +2777,7 @@ public class Application extends JFrame {
 		doanTblModel.setValueAt(dto.getMaDoan(), selectedRow, 0);
 		doanTblModel.setValueAt(dto.getSoNguoi(), selectedRow, 1);
 		doanTblModel.setValueAt(dto.getMaTour(), selectedRow, 2);
+		doanTblModel.setValueAt(dto.getMaHDV(), selectedRow, 3);
 	}
 
     public static Application getAppInstance() {
