@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.regex.Pattern;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.CardLayout;
@@ -352,6 +353,7 @@ public class Application extends JFrame {
 				cardLayout.show(cardsPane, "cardAddTaiKhoan");
 			}
 		});
+		
 		btnTaiKhoan_Add.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTaiKhoan_Add.setBounds(475, 550, 200, 30);
 		cardQuanLyTaiKhoan.add(btnTaiKhoan_Add);
@@ -1762,6 +1764,45 @@ public class Application extends JFrame {
 		JButton btnAddKhachHang_ThemMoi = new JButton("Thêm mới");
 		btnAddKhachHang_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				StringBuilder sb=new StringBuilder();
+		        if(txtAddMaKhachHang.getText().equals("")){
+		            sb.append("*Mã khách hàng không được để trống\n");
+		        }
+		    	else 
+		        {
+		        	for(KhachHangDTO dto: KhachHangBUS.listKhachHangDTO){
+			            if(txtAddMaKhachHang.getText().equals(String.valueOf(dto.getMaKH()))){
+			                JOptionPane.showMessageDialog(cardAddKhachHang, "Mã khách hàng đã tồn tại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+			                return;
+			            } 
+		        	}
+		        }
+		    	
+		    	if(txtAddHoTenKhachHang.getText().equals("")) {
+		            sb.append("*Họ tên khách hàng không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("\\D+", txtAddHoTenKhachHang.getText())) {
+		    		sb.append("Họ tên khách hàng không hợp lệ\n");
+		    	}
+		    	if(txtAddDiaChiKhachHang.getText().equals("")) {
+		            sb.append("*Địa chỉ khách hàng không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("\\D+", txtAddHoTenKhachHang.getText())) {
+		    		sb.append("Địa chỉ khách hàng không hợp lệ\n");
+		    	}
+		    	//kiểm tra SDT
+		    	// số điện thoại có 10 chữ số, bắt đầu bằng số 0. Số tiếp theo không được là số 0.
+		    	if(txtAddSdtKhachHang.getText().equals("")) {
+		    		sb.append("*Số điện thoại không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("^0{1}[1-9]{1}[0-9]{8}$", txtAddSdtKhachHang.getText())) {
+		    			sb.append("Số điện thoại không hợp lệ\n");
+		    	}
+		    	
+		    	if(sb.length()>0) {
+		    		JOptionPane.showMessageDialog(cardAddKhachHang, sb.toString(),"Thông báo",JOptionPane.ERROR_MESSAGE);
+		    		return;
+		    	}
 				KhachHangDTO dto = new KhachHangDTO();
 				
 				dto.setMaKH(txtAddMaKhachHang.getText());
