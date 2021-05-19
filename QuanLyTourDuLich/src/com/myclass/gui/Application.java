@@ -713,12 +713,27 @@ public class Application extends JFrame {
 		btnTourDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblTour.getSelectedRow();
-				String maTour = (String) tblTour.getValueAt(selectedRow, 0);
-				
-				tourBUS.deleteById(maTour);
-				tourTblModel.removeRow(selectedRow);
+				if(selectedRow>=0) {
+					int result = JOptionPane.showConfirmDialog(null,"Bạn có chắc muốn xóa thông tin này ?", "Thông báo",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	                if(result == JOptionPane.YES_OPTION){
+						String maTour = (String) tblTour.getValueAt(selectedRow, 0);
+						
+						tourBUS.deleteById(maTour);
+						tourTblModel.removeRow(selectedRow);
+						}
+	                else if(result == JOptionPane.NO_OPTION)
+                    {
+                        JOptionPane.showMessageDialog(null, "Không xóa thông tin");
+                    }
+				}
+				if(selectedRow<0) {
+					JOptionPane.showMessageDialog(cardQuanLyTour, "Bạn chưa chọn trường dữ liệu!");
+				}
 			}
 		});
+		btnTourDel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnTourDel.setBounds(675, 100, 150, 30);;
+		cardQuanLyTour.add(btnTourDel);
 		btnTourDel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnTourDel.setBounds(675, 100, 150, 30);;
 		cardQuanLyTour.add(btnTourDel);
