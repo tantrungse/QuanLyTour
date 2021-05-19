@@ -2740,13 +2740,17 @@ public class Application extends JFrame {
     private void addActionListenerBtnHopDong_CapNhat() {
 		btnHopDong_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int selectedRow = tblHopDong.getSelectedRow();
+				if(selectedRow>=0) {
 				cardLayout.show(cardsPane, "cardUpdateHopDong");
-				selectedRow = tblHopDong.getSelectedRow();
-				
-				txtUpdateMaHD.setText((String) tblHopDong.getValueAt(selectedRow, 0));
+		    	txtUpdateMaHD.setText((String) tblHopDong.getValueAt(selectedRow, 0));
 				txtUpdateNgayLapHD.setText((String) tblHopDong.getValueAt(selectedRow, 1));
 				txtUpdateNoiDungHD.setText((String) tblHopDong.getValueAt(selectedRow, 2));
 				txtUpdateHD_MaTour.setText((String) tblHopDong.getValueAt(selectedRow, 3));
+				}
+				else if(selectedRow<0) {
+					JOptionPane.showMessageDialog(null,"Bạn chưa chọn trường dữ liệu!");
+				}
 			}
 		});
     }
