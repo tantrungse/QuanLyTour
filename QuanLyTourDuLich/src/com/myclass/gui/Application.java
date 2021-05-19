@@ -1357,6 +1357,58 @@ public class Application extends JFrame {
 		JButton btnAddHdv_ThemMoi = new JButton("Thêm mới");
 		btnAddHdv_ThemMoi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				StringBuilder sb=new StringBuilder();
+		        
+		    	if(txtAddMaHdv.getText().equals("")){
+		            sb.append("*Mã hướng dẫn viên không được để trống\n");
+		        }
+		    	else 
+		        {
+		        	for(HuongDanVienDTO dto: HuongDanVienBUS.listHuongDanVienDTO){
+			            if(txtAddMaHdv.getText().equals(String.valueOf(dto.getMaHDV()))){
+			                JOptionPane.showMessageDialog(cardAddHdv, "Mã hướng dẫn viên đã tồn tại!", "Thông báo", JOptionPane.ERROR_MESSAGE);
+			                return;
+			            } 
+		        	}
+		        }
+		    	// tên nhân viên k chứa kí tự số
+		    	if(txtAddHoTenHdv.getText().equals("")) {
+		            sb.append("*Họ tên HDV không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("\\D+", txtAddHoTenHdv.getText())) {
+		    		sb.append("Họ tên HDV không hợp lệ\n");
+		    	}
+		    	if(txtAddNgaySinhHdv.getText().equals("")) {
+		            sb.append("*Ngày sinh HDV không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("^([0-9]{4}[-/]?((0[13-9]|1[012])[-/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[-/]?31|02[-/]?(0[1-9]|1[0-9]|2[0-8]))|([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00)[-/]?02[-/]?29)$", txtAddNgaySinhHdv.getText())) {
+		    		sb.append("Vui lòng nhập ngày sinh đúng định dạng yyyy-MM-dd\n");
+		    	}
+		    	if(txtAddGioiTinhHdv.getText().equals("")) {
+		            sb.append("*Giới tính HDV không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("\\D+", txtAddGioiTinhHdv.getText())) {
+		    		sb.append("Giới tính HDV không hợp lệ\n");
+		    	}
+		    	if(txtAddDiaChiHdv.getText().equals("")) {
+		            sb.append("*Địa chỉ HDV không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("\\D+", txtAddDiaChiHdv.getText())) {
+		    		sb.append("Địa chỉ HDV không hợp lệ\n");
+		    	}
+		    	//kiểm tra SDT
+		    	// số điện thoại có 10 chữ số, bắt đầu bằng số 0. Số tiếp theo không được là số 0.
+		    	if(txtAddSdtHdv.getText().equals("")) {
+		    		sb.append("*Số điện thoại không được để trống\n");
+		    	}
+		    	else if(!Pattern.matches("^0{1}[1-9]{1}[0-9]{8}$", txtAddSdtHdv.getText())) {
+		    			sb.append("Số điện thoại không hợp lệ\n");
+		    	}
+		    	
+		    	if(sb.length()>0) {
+		    		JOptionPane.showMessageDialog(cardAddHdv, sb.toString(),"Thông báo",JOptionPane.ERROR_MESSAGE);
+		    		return;
+		    	}
 				HuongDanVienDTO dto = new HuongDanVienDTO();
 				
 				dto.setMaHDV(txtAddMaHdv.getText());
