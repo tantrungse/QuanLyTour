@@ -184,6 +184,7 @@ public class HuongDanVienDAO {
 			pstmt.setString(4, dto.getGioiTinh());
 			pstmt.setString(5, dto.getDiaChi());
 			pstmt.setString(6, dto.getSdt());
+			pstmt.setString(7, dto.getMaHDV());
 			
 			int rowEffects = pstmt.executeUpdate();
 			System.out.println("Row effects: " + rowEffects);

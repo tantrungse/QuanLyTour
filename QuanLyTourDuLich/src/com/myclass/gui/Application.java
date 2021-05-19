@@ -1478,7 +1478,7 @@ public class Application extends JFrame {
 				huongDanVienBUS.update(dto);
 				HuongDanVienBUS.listHuongDanVienDTO.set(selectedRow, dto);
 				setRow(dto, selectedRow);
-				cardLayout.show(cardsPane, "cardQuanLyHuongDanVien");
+				cardLayout.show(cardsPane, "cardQuanLyHdv");
 				// clear all text after update
 				txtUpdateMaHdv.setText("");
 				txtUpdateHoTenHdv.setText("");
