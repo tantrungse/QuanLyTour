@@ -1261,15 +1261,19 @@ public class Application extends JFrame {
 		JButton btnHdvUpdate = new JButton("Cập nhật hướng dẫn viên");
 		btnHdvUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int selectedRow = tblHdv.getSelectedRow();
+				if(selectedRow>=0) {
 				cardLayout.show(cardsPane, "cardUpdateHdv");
-				selectedRow = tblHdv.getSelectedRow();
-				
 				txtUpdateMaHdv.setText((String) tblHdv.getValueAt(selectedRow, 0));
 				txtUpdateHoTenHdv.setText((String) tblHdv.getValueAt(selectedRow, 1));
 				txtUpdateNgaySinhHdv.setText((String) tblHdv.getValueAt(selectedRow, 2));
 				txtUpdateGioiTinhHdv.setText((String) tblHdv.getValueAt(selectedRow, 3));
 				txtUpdateDiaChiHdv.setText((String) tblHdv.getValueAt(selectedRow, 4));
 				txtUpdateSdtHdv.setText((String) tblHdv.getValueAt(selectedRow, 5));
+				}
+				if(selectedRow<0 ) {
+					JOptionPane.showMessageDialog(cardQuanLyHdv, "Bạn chưa chọn trường dữ liệu nào cả");
+				}
 			}
 		});
 		btnHdvUpdate.setFont(new Font("Tahoma", Font.PLAIN, 16));
