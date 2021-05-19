@@ -1495,7 +1495,7 @@ public class Application extends JFrame {
 		JButton btnUpdateHdv_QuayLai = new JButton("Quay lại");
 		btnUpdateHdv_QuayLai.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(cardsPane, "cardQuanLyHuongDanVien");
+				cardLayout.show(cardsPane, "cardQuanLyHdv");
 			}
 		});
 		btnUpdateHdv_QuayLai.setFont(new Font("Tahoma", Font.PLAIN, 16));
