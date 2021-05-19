@@ -1227,10 +1227,21 @@ public class Application extends JFrame {
 		btnHdvDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblHdv.getSelectedRow();
-				String maHdv = (String) tblHdv.getValueAt(selectedRow, 0);
-				
-				huongDanVienBUS.deleteById(maHdv);
-				hdvTblModel.removeRow(selectedRow);
+				if(selectedRow>=0) {
+					int result=JOptionPane.showConfirmDialog(null,"Bạn có chắc muốn xóa thông tin này?","thông báo",JOptionPane.YES_NO_OPTION); 
+					if(result==JOptionPane.YES_OPTION) {
+					String maHdv = (String) tblHdv.getValueAt(selectedRow, 0);
+					
+					huongDanVienBUS.deleteById(maHdv);
+					hdvTblModel.removeRow(selectedRow);
+					}
+					else if(result==JOptionPane.NO_OPTION) {
+						JOptionPane.showMessageDialog(null,"Thông tin này chưa được xóa!");
+					}
+				}
+				if(selectedRow<0 ) {
+					JOptionPane.showMessageDialog(cardQuanLyTaiKhoan, "Bạn chưa chọn trường dữ liệu nào cả");
+				}
 			}
 		});
 		btnHdvDel.setFont(new Font("Tahoma", Font.PLAIN, 16));
