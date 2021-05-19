@@ -2681,10 +2681,10 @@ public class Application extends JFrame {
 				String quyen = (String) tblTaiKhoan.getValueAt(selectedRow, 2);
 				txtUpdateTenTaiKhoan.setText((String) tblTaiKhoan.getValueAt(selectedRow, 0));
 				txtUpdateMatKhau.setText((String) tblTaiKhoan.getValueAt(selectedRow, 1));
-				if(quyen.equals("Quáº£n trá»‹ viÃªn")) {
+				if(quyen.equals("Quản trị viên")) {
 					rBtnUpdateQuanTriVien.setSelected(true);
 				}	
-				else if(quyen.equals("NhÃ¢n viÃªn")) {
+				else if(quyen.equals("Nhân viên")) {
 					rBtnUpdateNhanVien.setSelected(true);
 				}
 			}
@@ -2709,14 +2709,18 @@ public class Application extends JFrame {
     private void addActionListenerBtnKhachHang_Update() {
 		btnKhachHang_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(cardsPane, "cardUpdateKhachHang");
-				selectedRow = tblKhachHang.getSelectedRow();
-				
-				txtUpdateMaKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 0));
-				txtUpdateHoTenKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 1));
-				txtUpdateDiaChiKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 2));
-				txtUpdateSdtKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 3));
-				txtUpdateMaDoanKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 4));
+				int selectedRow = tblKhachHang.getSelectedRow();
+				if(selectedRow>=0) {
+					cardLayout.show(cardsPane, "cardUpdateKhachHang");
+					txtUpdateMaKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 0));
+					txtUpdateHoTenKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 1));
+					txtUpdateDiaChiKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 2));
+					txtUpdateSdtKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 3));
+					txtUpdateMaDoanKhachHang.setText((String) tblKhachHang.getValueAt(selectedRow, 4));
+				}
+				else if(selectedRow<0) {
+					JOptionPane.showMessageDialog(null, "Bạn chưa chọn dữ liệu nào cả!");
+				}
 			}
 		});
     }
