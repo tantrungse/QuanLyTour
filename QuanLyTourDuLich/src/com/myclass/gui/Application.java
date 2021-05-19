@@ -2680,17 +2680,25 @@ public class Application extends JFrame {
     private void addActionListenerBtnTaiKhoan_Update() {
 		btnTaiKhoan_Update.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(cardsPane, "cardUpdateTaiKhoan");
-				selectedRow = tblTaiKhoan.getSelectedRow();
-				String quyen = (String) tblTaiKhoan.getValueAt(selectedRow, 2);
-				txtUpdateTenTaiKhoan.setText((String) tblTaiKhoan.getValueAt(selectedRow, 0));
-				txtUpdateMatKhau.setText((String) tblTaiKhoan.getValueAt(selectedRow, 1));
-				if(quyen.equals("Quản trị viên")) {
-					rBtnUpdateQuanTriVien.setSelected(true);
-				}	
-				else if(quyen.equals("Nhân viên")) {
-					rBtnUpdateNhanVien.setSelected(true);
+				int selectedRow = tblTaiKhoan.getSelectedRow();
+				if(selectedRow>=0) {
+					cardLayout.show(cardsPane, "cardUpdateTaiKhoan");
+					
+					
+					String quyen = (String) tblTaiKhoan.getValueAt(selectedRow, 2);
+					txtUpdateTenTaiKhoan.setText((String) tblTaiKhoan.getValueAt(selectedRow, 0));
+					txtUpdateMatKhau.setText((String) tblTaiKhoan.getValueAt(selectedRow, 1));
+					if(quyen.equals("Quản trị viên")) {
+						rBtnUpdateQuanTriVien.setSelected(true);
+					}	
+					else if(quyen.equals("Nhân viên")) {
+						rBtnUpdateNhanVien.setSelected(true);
+					}
 				}
+				else if(selectedRow<0) {
+					JOptionPane.showMessageDialog(null, "Bạn chưa chọn trường dữ liệu!");
+				}
+			
 			}
 		});
     }
