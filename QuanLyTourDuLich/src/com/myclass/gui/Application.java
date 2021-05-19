@@ -2758,12 +2758,16 @@ public class Application extends JFrame {
     private void addActionListenerBtnDoan_CapNhat() {
 		btnDoan_CapNhat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.show(cardsPane, "cardUpdateDoan");
-				selectedRow = tblDoan.getSelectedRow();
-
-				txtUpdateMaDoan.setText((String) tblDoan.getValueAt(selectedRow, 0));
-				txtUpdateSoNguoi.setText((String) tblDoan.getValueAt(selectedRow, 1));
-				txtUpdateDoan_MaTour.setText((String) tblDoan.getValueAt(selectedRow, 2));
+				int selectedRow = tblDoan.getSelectedRow();
+				if(selectedRow>=0) {
+					cardLayout.show(cardsPane, "cardUpdateDoan");
+					txtUpdateMaDoan.setText((String) tblDoan.getValueAt(selectedRow, 0));
+					txtUpdateSoNguoi.setText((String) tblDoan.getValueAt(selectedRow, 1));
+					txtUpdateDoan_MaTour.setText((String) tblDoan.getValueAt(selectedRow, 2));
+					}
+				else if(selectedRow<0) {
+					JOptionPane.showMessageDialog(null,"Bạn chưa chọn trường dữ liệu!");
+				}
 			}
 		});
     }
