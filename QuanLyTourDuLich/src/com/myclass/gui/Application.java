@@ -1984,11 +1984,22 @@ public class Application extends JFrame {
 		btnHopDong_Xoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedRow = tblHopDong.getSelectedRow();
-				String maKH = (String) tblHopDong.getValueAt(selectedRow, 0);
-				
-				hopDongBUS.deleteById(maKH);
-				hopDongTblModel.removeRow(selectedRow);
-				HopDongBUS.listHopDongDTO.remove(selectedRow);
+				if(selectedRow>=0) {
+					int result=JOptionPane.showConfirmDialog(null,"Bạn có chắc muốn xóa thông tin này?","thông báo",JOptionPane.YES_NO_OPTION); 
+					if(result==JOptionPane.YES_OPTION) {
+					String maKH = (String) tblHopDong.getValueAt(selectedRow, 0);
+					
+					hopDongBUS.deleteById(maKH);
+					hopDongTblModel.removeRow(selectedRow);
+					HopDongBUS.listHopDongDTO.remove(selectedRow);
+					}
+					else if(result==JOptionPane.NO_OPTION) {
+						JOptionPane.showMessageDialog(null,"Thông tin này chưa được xóa!");
+					}
+				}
+				if(selectedRow<0 ) {
+					JOptionPane.showMessageDialog(cardQuanLyTaiKhoan, "Bạn chưa chọn trường dữ liệu nào cả");
+				}
 			}
 		});
 		btnHopDong_Xoa.setFont(new Font("Tahoma", Font.PLAIN, 16));
